@@ -83,7 +83,7 @@ export default function HomePage({ theme, onQuickView }: { theme: ThemeId; onQui
       <HomeHero theme={theme} heroProduct={heroProduct} />
       <div className="home-trust-strip">
         <div><span>01</span><strong>Good design, chosen with care</strong></div>
-        <div><span>02</span><strong>Cash on delivery available</strong></div>
+        <div><span>02</span><strong>{commerceConfigured ? "Cash on delivery available" : "Checkout is temporarily paused"}</strong></div>
         <div><span>03</span><strong>{commerceConfigured ? settings.freeShippingThreshold > 0 ? `Free delivery over ${formatPrice(settings.freeShippingThreshold)}` : "Free delivery on every order" : "Delivery terms are being prepared"}</strong></div>
         <div><span>04</span><strong>Here when you need us</strong></div>
       </div>
