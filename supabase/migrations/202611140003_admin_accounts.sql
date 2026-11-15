@@ -1,5 +1,5 @@
 -- Database-backed Super Admin accounts for the NEXVORO-1 workspace.
--- Apply only to the dedicated NEXVORO-1 Supabase project, after migrations 001 and 002.
+-- Apply only to the Supabase project explicitly approved for NEXVORO-1, after migrations 001 and 002.
 create table if not exists public.nexvoro_admin_users (
   id uuid primary key default gen_random_uuid(),
   display_name text not null check (length(btrim(display_name)) between 2 and 100),

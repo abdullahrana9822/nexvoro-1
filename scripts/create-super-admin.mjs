@@ -7,7 +7,6 @@ import nextEnv from "@next/env";
 const { loadEnvConfig } = nextEnv;
 const TABLE = "nexvoro_admin_users";
 const BCRYPT_COST = 12;
-const NON_NEXVORO_PROJECT_REFS = new Set(["runjcrloujizjxcicgec"]);
 
 function prompt(label, { hidden = false } = {}) {
   if (!process.stdin.isTTY || typeof process.stdin.setRawMode !== "function") {
@@ -65,7 +64,7 @@ function getSupabaseConfig() {
   const url = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
   const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
   if (!url || !serviceRoleKey) {
-    throw new Error("Missing SUPABASE_URL (or NEXT_PUBLIC_SUPABASE_URL) and/or SUPABASE_SERVICE_ROLE_KEY. Add the dedicated NEXVORO-1 Supabase project's server credentials to .env.local first.");
+    throw new Error("Missing SUPABASE_URL (or NEXT_PUBLIC_SUPABASE_URL) and/or SUPABASE_SERVICE_ROLE_KEY. Add the explicitly approved NEXVORO-1 Supabase project's server credentials to .env.local first.");
   }
   let parsedUrl;
   try {
@@ -82,12 +81,9 @@ function getSupabaseConfig() {
 async function main() {
   loadEnvConfig(process.cwd());
   const { url, serviceRoleKey, projectRef } = getSupabaseConfig();
-  if (NON_NEXVORO_PROJECT_REFS.has(projectRef)) {
-    throw new Error("Refusing to provision in the existing supabase-beige-ocean project. NEXVORO-1 requires its separately created production database.");
-  }
   console.log("NEXVORO-1 Super Admin provisioner");
   console.log(`Target Supabase project ref: ${projectRef}`);
-  console.log("Use only the separate NEXVORO-1 production project. This command will not update or overwrite an existing admin account.");
+  console.log("Use only the Supabase project explicitly approved for NEXVORO-1. This command will not update or overwrite an existing admin account.");
   const confirmation = await prompt("Type the project ref shown above to continue: ");
   if (confirmation !== projectRef) throw new Error("Project ref confirmation did not match; no database changes were made.");
 
@@ -118,7 +114,7 @@ async function main() {
   const { error: migrationError } = await db.from(TABLE).select("id").limit(1);
   if (migrationError) {
     password = "";
-    throw new Error("Admin table is unavailable. Apply supabase/migrations/202611140003_admin_accounts.sql to this dedicated project after migrations 001 and 002, then run this command again.");
+    throw new Error("Admin table is unavailable. Apply supabase/migrations/202611140003_admin_accounts.sql to the approved project after migrations 001 and 002, then run this command again.");
   }
 
   const { data: existing, error: lookupError } = await db
@@ -153,7 +149,7 @@ async function main() {
     .select("id,display_name,username,role,must_change_password,created_at")
     .single();
   if (insertError || !account) {
-    throw new Error("Admin account creation failed. Check the dedicated project's schema, RLS grants, and service-role key; no credential values were logged.");
+    throw new Error("Admin account creation failed. Check the approved project's schema, RLS grants, and service-role key; no credential values were logged.");
   }
 
   console.log("Super Admin account created in the confirmed Supabase project.");
