@@ -11,7 +11,9 @@ const bucket = "nexvoro-product-images";
 export async function POST(request: NextRequest) {
   const origin = request.headers.get("origin");
   if (origin && origin !== request.nextUrl.origin) return NextResponse.json({ error: "Cross-origin admin upload rejected." }, { status: 403 });
-  if (!getAdminSession(request)) return NextResponse.json({ error: "Admin sign-in required." }, { status: 401 });
+  const admin = await getAdminSession(request);
+  if (!admin || admin.role !== "SUPER_ADMIN") return NextResponse.json({ error: "Super Admin sign-in required." }, { status: 401, headers: { "cache-control": "no-store" } });
+  if (admin.mustChangePassword) return NextResponse.json({ error: "Change the initial password before accessing admin tools." }, { status: 403, headers: { "cache-control": "no-store" } });
   const contentLength = Number(request.headers.get("content-length") || "0");
   if (!Number.isFinite(contentLength) || contentLength < 0 || contentLength > MAX_BYTES + 128_000) return NextResponse.json({ error: "Upload request is too large." }, { status: 413 });
   const db = getDatabase();

@@ -35,16 +35,15 @@ export async function GET() {
       });
     }
 
-    const { data: settings, error: settingsError } = await db
-      .from("nexvoro_store_settings")
-      .select("payload")
-      .eq("id", "store")
-      .maybeSingle();
+    const [{ data: settings, error: settingsError }, { error: adminTableError }] = await Promise.all([
+      db.from("nexvoro_store_settings").select("payload").eq("id", "store").maybeSingle(),
+      db.from("nexvoro_admin_users").select("id").limit(1),
+    ]);
     const commerceConfigured = !settingsError && hasCommerceSettings(settings?.payload);
     return NextResponse.json({
       ok: true,
       database: true,
-      adminConfigured: adminConfigured(),
+      adminConfigured: adminConfigured() && !adminTableError,
       commerceConfigured,
       mode: "database",
     }, { headers: { "cache-control": "no-store" } });

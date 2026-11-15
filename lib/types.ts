@@ -170,6 +170,9 @@ export type StoreContextValue = {
   commerceConfigured: boolean;
   adminAuthenticated: boolean;
   adminConfigured: boolean;
+  adminMustChangePassword: boolean;
+  adminRole: "SUPER_ADMIN" | null;
+  adminDisplayName: string | null;
   toasts: ToastNotice[];
   setTheme: (theme: ThemeId) => void;
   updateSettings: (patch: Partial<StoreSettings>) => Promise<boolean>;
@@ -194,7 +197,8 @@ export type StoreContextValue = {
   moderateReview: (review: Review) => Promise<boolean>;
   checkout: (order: Order) => Promise<{ ok: boolean; order?: Order; persisted: boolean; message?: string }>;
   applyDatabaseSnapshot: (snapshot: Partial<StoreSnapshot>) => void;
-  loginAdmin: (key: string) => Promise<boolean>;
+  loginAdmin: (username: string, password: string) => Promise<boolean>;
+  changeAdminPassword: (currentPassword: string, newPassword: string) => Promise<boolean>;
   logoutAdmin: () => Promise<void>;
 };
 

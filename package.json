@@ -9,11 +9,13 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "check:catalog": "node scripts/verify-catalog.mjs",
-    "test": "npm run check:catalog && node scripts/verify-storefront-edits.mjs && node --test scripts/currency.test.mjs",
-    "seed:catalog": "node scripts/seed-catalog.mjs"
+    "test": "npm run check:catalog && node scripts/verify-storefront-edits.mjs && node --test scripts/currency.test.mjs scripts/admin-auth.test.mjs",
+    "seed:catalog": "node scripts/seed-catalog.mjs",
+    "admin:create": "node scripts/create-super-admin.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.57.4",
+    "bcryptjs": "^3.0.3",
     "clsx": "^2.1.1",
     "lucide-react": "^0.468.0",
     "next": "^15.2.4",

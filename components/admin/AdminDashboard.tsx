@@ -28,6 +28,7 @@ import type { Customer, Order, StoreSnapshot } from "@/lib/types";
 import { isCurrencyCode } from "@/lib/currency.mjs";
 import AnalyticsDashboard, { type PeriodFilter, type PeriodKey } from "./Analytics";
 import { CategoriesManager, CustomersManager, MarketingManager, OrdersManager, ProductsManager, ReviewsManager, SettingsManager } from "./Management";
+import AdminPasswordChange from "./AdminPasswordChange";
 
 const navItems = [
   { id: "overview", label: "Overview", href: "/admin", icon: LayoutDashboard },
@@ -96,9 +97,10 @@ function deriveCustomers(orders: Order[]): Customer[] {
 
 export default function AdminDashboard({ section }: { section: string }) {
   const key = titles[section] ? section : "overview";
-  const { products, orders, customers, settings, databaseStatus, adminConfigured, adminAuthenticated, loginAdmin, logoutAdmin, applyDatabaseSnapshot, setCustomers, notify } = useStore();
+  const { products, orders, customers, settings, databaseStatus, adminConfigured, adminAuthenticated, adminRole, adminDisplayName, adminMustChangePassword, loginAdmin, logoutAdmin, applyDatabaseSnapshot, setCustomers, notify } = useStore();
   const [period, setPeriod] = useState<PeriodFilter>({ period: "30d", from: "", to: "" });
-  const [adminKey, setAdminKey] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [loginBusy, setLoginBusy] = useState(false);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [remoteLoaded, setRemoteLoaded] = useState(false);
@@ -109,7 +111,7 @@ export default function AdminDashboard({ section }: { section: string }) {
   const pageTitle = titles[key];
 
   useEffect(() => {
-    if (databaseStatus !== "connected" || !adminAuthenticated) return;
+    if (databaseStatus !== "connected" || !adminAuthenticated || adminRole !== "SUPER_ADMIN" || adminMustChangePassword) return;
     let cancelled = false;
     setRemoteError("");
     setRemoteLoaded(false);
@@ -128,23 +130,32 @@ export default function AdminDashboard({ section }: { section: string }) {
       setRemoteLoaded(true);
     });
     return () => { cancelled = true; };
-  }, [databaseStatus, adminAuthenticated, applyDatabaseSnapshot, setCustomers]);
+  }, [databaseStatus, adminAuthenticated, adminRole, adminMustChangePassword, applyDatabaseSnapshot, setCustomers]);
 
   const signIn = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault(); setLoginBusy(true);
-    await loginAdmin(adminKey);
-    setAdminKey(""); setLoginBusy(false);
+    event.preventDefault();
+    setLoginBusy(true);
+    const submittedPassword = password;
+    setPassword("");
+    try {
+      await loginAdmin(username, submittedPassword);
+    } finally {
+      setLoginBusy(false);
+    }
   };
 
   if (databaseStatus === "checking") return <div className="admin-loading"><span className="loading-orbit" /><p>Opening the NEXVORO workspace…</p></div>;
-  if (databaseStatus !== "connected" || !adminConfigured) return <div className="admin-auth-page"><Link href="/" className="admin-auth-brand"><span className="admin-brand-symbol">N</span><span>NEXVORO <small>STORE ADMIN</small></span></Link><div className="admin-auth-card"><span className="eyebrow">ADMIN WORKSPACE LOCKED</span><h1>{databaseStatus !== "connected" ? "Connect the live store." : "Finish admin setup."}</h1><p>{databaseStatus !== "connected" ? "No admin actions are available until the live Supabase database is reachable and its migration is applied. This prevents browser-only edits from looking like saved store records." : "The database is reachable, but the protected admin secrets are not configured on the server."}</p><div className="admin-auth-note"><ShieldCheck size={16} /><span>Configure the server-side variables in <code>.env.example</code>, apply <code>supabase/migrations/202611140001_nexvoro_store.sql</code>, then verify <code>/api/health</code>. Never put the service-role key in a browser variable.</span></div><Link href="/" className="admin-auth-back"><ArrowLeft size={13} />Return to storefront</Link></div></div>;
-  if (!adminAuthenticated) return <div className="admin-auth-page"><Link href="/" className="admin-auth-brand"><span className="admin-brand-symbol">N</span><span>NEXVORO <small>STORE ADMIN</small></span></Link><div className="admin-auth-card"><span className="eyebrow">PROTECTED STORE ADMIN</span><h1>Welcome back.</h1><p>Sign in with the server-configured admin key to manage shared store records.</p><form onSubmit={signIn}><label htmlFor="admin-key">Admin access key</label><input id="admin-key" type="password" autoComplete="current-password" required value={adminKey} onChange={(event) => setAdminKey(event.target.value)} placeholder="Enter your secure key" /><button className="admin-button admin-button-primary" disabled={loginBusy}>{loginBusy ? "Checking…" : "Sign in securely"}<ArrowRight size={15} /></button></form><div className="admin-auth-note"><ShieldCheck size={16} /><span>Passwords and service keys are never stored in the browser. Admin access requires the server secrets documented in the setup guide.</span></div><Link href="/" className="admin-auth-back"><ArrowLeft size={13} />Return to storefront</Link></div></div>;
+  if (databaseStatus !== "connected" || !adminConfigured) return <div className="admin-auth-page"><Link href="/" className="admin-auth-brand"><span className="admin-brand-symbol">N</span><span>NEXVORO <small>STORE ADMIN</small></span></Link><div className="admin-auth-card"><span className="eyebrow">ADMIN WORKSPACE LOCKED</span><h1>{databaseStatus !== "connected" ? "Connect the live store." : "Finish Super Admin setup."}</h1><p>{databaseStatus !== "connected" ? "No production database is configured and reachable for this deployment. Admin sign-in and dashboard data are unavailable." : "The store database is reachable, but admin sign-in is not ready. The admin accounts migration and server-side session secret are required."}</p><div className="admin-auth-note"><ShieldCheck size={16} /><span>Apply migrations <code>202611140001</code>, <code>202611140002</code>, and <code>202611140003_admin_accounts.sql</code> to the dedicated NEXVORO-1 Supabase project. Configure <code>SUPABASE_URL</code>, <code>SUPABASE_SERVICE_ROLE_KEY</code>, and a 32+ character <code>SESSION_SECRET</code> on the server; never expose the service-role key in the browser.</span></div><Link href="/" className="admin-auth-back"><ArrowLeft size={13} />Return to storefront</Link></div></div>;
+  if (!adminAuthenticated || adminRole !== "SUPER_ADMIN") return <div className="admin-auth-page"><Link href="/" className="admin-auth-brand"><span className="admin-brand-symbol">N</span><span>NEXVORO <small>STORE ADMIN</small></span></Link><div className="admin-auth-card"><span className="eyebrow">PROTECTED SUPER ADMIN</span><h1>Welcome back.</h1><p>Sign in with the production Super Admin username and password.</p><form onSubmit={signIn}><label htmlFor="admin-username">Username</label><input id="admin-username" name="username" type="text" autoComplete="username" required maxLength={64} value={username} onChange={(event) => setUsername(event.target.value)} placeholder="Enter your admin username" /><label htmlFor="admin-password">Password</label><input id="admin-password" name="password" type="password" autoComplete="current-password" required maxLength={72} value={password} onChange={(event) => setPassword(event.target.value)} placeholder="Enter your password" /><button className="admin-button admin-button-primary" disabled={loginBusy}>{loginBusy ? "Checking…" : "Sign in securely"}<ArrowRight size={15} /></button></form><div className="admin-auth-note"><ShieldCheck size={16} /><span>Credentials are verified against the production database using bcrypt. First sign-in requires a password change before any dashboard data is available.</span></div><Link href="/" className="admin-auth-back"><ArrowLeft size={13} />Return to storefront</Link></div></div>;
+  if (adminMustChangePassword) return <div className="admin-auth-page"><Link href="/" className="admin-auth-brand"><span className="admin-brand-symbol">N</span><span>NEXVORO <small>STORE ADMIN</small></span></Link><div className="admin-auth-card"><span className="eyebrow">FIRST SIGN-IN SECURITY</span><h1>Change your password.</h1><p>{adminDisplayName || "Super Admin"}, set a new password before opening the admin dashboard. No dashboard records or admin APIs are available until this is complete.</p><AdminPasswordChange /><button type="button" className="admin-auth-back admin-auth-logout" onClick={async () => { await logoutAdmin(); notify("Admin session ended.", "info"); }}><ArrowLeft size={13} />Sign out</button></div></div>;
+  if (adminAuthenticated && adminRole === "SUPER_ADMIN" && !remoteLoaded) return <div className="admin-loading"><span className="loading-orbit" /><p>Loading production admin records…</p></div>;
+  if (adminAuthenticated && adminRole === "SUPER_ADMIN" && remoteError) return <div className="admin-auth-page"><div className="admin-auth-card"><span className="eyebrow">LIVE DATA UNAVAILABLE</span><h1>Dashboard locked.</h1><p>The production admin records could not be loaded, so no local or sample statistics are shown.</p><div className="admin-auth-note"><ShieldCheck size={16} /><span>{remoteError}</span></div><button className="admin-button admin-button-primary" onClick={() => window.location.reload()}>Retry production connection <ArrowRight size={14} /></button><button type="button" className="admin-auth-back admin-auth-logout" onClick={async () => { await logoutAdmin(); notify("Admin session ended.", "info"); }}><ArrowLeft size={13} />Sign out</button></div></div>;
 
   return <div className={`admin-shell ${mobileNavOpen ? "admin-mobile-nav-open" : ""}`}>
     <aside className="admin-sidebar"><div className="admin-sidebar-top"><Link href="/" className="admin-brand"><span className="admin-brand-symbol">N</span><span>NEXVORO<small>STORE ADMIN</small></span></Link><button className="admin-mobile-close" onClick={() => setMobileNavOpen(false)} aria-label="Close menu"><X size={19} /></button></div><div className="admin-store-switch"><span className="admin-store-avatar">N</span><span><strong>NEXVORO</strong><small>{databaseStatus === "connected" ? "DATABASE STORE" : "BROWSER PREVIEW"}</small></span><ChevronDown size={14} /></div><nav className="admin-nav" aria-label="Admin navigation"><span className="admin-nav-label">WORKSPACE</span>{navItems.map((item) => { const Icon = item.icon; return <Link key={item.id} href={item.href} className={key === item.id ? "admin-nav-active" : ""} onClick={() => setMobileNavOpen(false)}><Icon size={16} /><span>{item.label}</span>{item.id === "orders" && orders.some((order) => order.status === "pending") && <i>{orders.filter((order) => order.status === "pending").length}</i>}</Link>; })}</nav><div className="admin-sidebar-bottom"><div className="admin-sidebar-help"><span><Sparkles size={14} />NEXVORO / 01</span><p>Thoughtful technology. Carefully chosen.</p></div><Link href="/" target="_blank" className="admin-sidebar-store-link">View storefront <ExternalLink size={14} /></Link></div></aside>
-    <div className="admin-main-area"><header className="admin-topbar"><button className="admin-mobile-open" onClick={() => setMobileNavOpen(true)} aria-label="Open admin navigation"><Menu size={20} /></button><div className="admin-topbar-crumb"><span>WORKSPACE</span><b>/</b><strong>{pageTitle.title}</strong></div><div className="admin-topbar-actions"><span className={`admin-connection-pill ${databaseStatus === "connected" ? "connected" : "preview"}`}><i />{databaseStatus === "connected" ? "Supabase connected" : "Browser preview"}</span><Link href="/" target="_blank" className="admin-view-store">View store <ExternalLink size={13} /></Link>{databaseStatus === "connected" && adminAuthenticated && <button className="admin-logout" onClick={async () => { await logoutAdmin(); notify("Admin session ended.", "info"); }} aria-label="Sign out of admin"><LogOut size={16} /></button>}</div></header>
+    <div className="admin-main-area"><header className="admin-topbar"><button className="admin-mobile-open" onClick={() => setMobileNavOpen(true)} aria-label="Open admin navigation"><Menu size={20} /></button><div className="admin-topbar-crumb"><span>WORKSPACE</span><b>/</b><strong>{pageTitle.title}</strong></div><div className="admin-topbar-actions"><span className={`admin-connection-pill ${databaseStatus === "connected" ? "connected" : "preview"}`}><i />{databaseStatus === "connected" ? "Supabase connected" : "Browser preview"}</span><Link href="/" target="_blank" className="admin-view-store">View store <ExternalLink size={13} /></Link><span className="admin-role-badge">{adminDisplayName || "Super Admin"} · {adminRole}</span>{databaseStatus === "connected" && adminAuthenticated && <button className="admin-logout" onClick={async () => { await logoutAdmin(); notify("Admin session ended.", "info"); }} aria-label="Sign out of admin"><LogOut size={16} /></button>}</div></header>
       <main className="admin-content"><div className="admin-page-title"><div><span className="eyebrow">NEXVORO / OPERATIONS</span><h1>{pageTitle.title}</h1><p>{pageTitle.subtitle}</p></div>{key === "overview" && <div className="admin-date-shortcut"><span>REPORTING PERIOD</span><select value={period.period} onChange={(event) => setPeriod({ ...period, period: event.target.value as PeriodKey })}><option value="today">Today</option><option value="7d">Last 7 days</option><option value="30d">Last 30 days</option><option value="90d">Last 90 days</option><option value="year">This year</option><option value="custom">Custom dates</option></select></div>}</div>
-      {databaseStatus === "connected" && adminAuthenticated && !remoteLoaded && <div className="admin-sync-note"><span className="loading-orbit loading-orbit-small" />Syncing the live store database…</div>}
+      {databaseStatus === "connected" && adminAuthenticated && adminRole === "SUPER_ADMIN" && !adminMustChangePassword && !remoteLoaded && <div className="admin-sync-note"><span className="loading-orbit loading-orbit-small" />Syncing the live store database…</div>}
       {remoteError && <div className="admin-error-banner"><span>{remoteError}</span><button onClick={() => window.location.reload()}>Retry <ArrowRight size={13} /></button></div>}
       {key === "overview" || key === "analytics" ? <AnalyticsDashboard orders={orders} products={products} customers={customerList} settings={settings} period={period} setPeriod={setPeriod} />
         : key === "products" ? <ProductsManager />
@@ -154,6 +165,7 @@ export default function AdminDashboard({ section }: { section: string }) {
         : key === "marketing" ? <MarketingManager newsletter={newsletter} messages={messages} />
         : key === "reviews" ? <ReviewsManager />
         : key === "themes" ? <SettingsManager themeOnly />
+        : key === "settings" ? <><SettingsManager /><section className="admin-account-security"><div className="admin-settings-section-heading"><span className="settings-section-icon"><ShieldCheck size={16} /></span><div><strong>Super Admin account security</strong><small>Update the password used to access the production admin workspace.</small></div></div><AdminPasswordChange compact /></section></>
         : <SettingsManager />}
       </main></div>
   </div>;

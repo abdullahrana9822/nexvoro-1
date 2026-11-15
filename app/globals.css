@@ -1850,3 +1850,20 @@ img { max-width:100%; }
   .fx-fallback-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
   .confirmation-payment-snapshot>small { text-align:left; }
 }
+
+/* Database-backed Super Admin sign-in and password management */
+.admin-role-badge { max-width:190px; overflow:hidden; color:#737a84; font-size:7px; text-overflow:ellipsis; white-space:nowrap; }
+.admin-account-security { max-width:980px; margin-top:15px; padding:15px; border:1px solid #e5e8ec; background:#fff; }
+.admin-password-form { display:flex; flex-direction:column; gap:8px; }
+.admin-password-form-compact { max-width:500px; }
+.admin-password-form>label { display:flex; flex-direction:column; gap:5px; color:#616975; font-size:7px; }
+.admin-password-form input { min-height:36px; padding:0 9px; border:1px solid #dfe2e7; outline:0; color:#40474f; background:#fff; font-size:8px; }
+.admin-password-form input:focus { border-color:#9e8761; }
+.admin-password-form small { color:#9299a2; font-size:6px; line-height:1.5; }
+.admin-password-form>.admin-button { align-self:flex-start; margin-top:3px; }
+.admin-auth-logout { width:fit-content; padding:0; border:0; background:transparent; cursor:pointer; }
+@media (max-width:640px) {
+  .admin-role-badge { display:none; }
+  .admin-account-security { padding:11px; }
+  .admin-password-form>.admin-button { align-self:stretch; }
+}

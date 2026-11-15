@@ -24,16 +24,16 @@ npm run build
 npm audit
 ```
 
-## Supabase and admin setup
+## Supabase and Super Admin setup
 
-1. Create or select a Supabase project and take a backup before applying schema changes.
-2. Review and apply `supabase/migrations/202611140001_nexvoro_store.sql` in the intended project. The migration creates separate `nexvoro_*` tables and does not alter or delete existing store tables.
-3. Set the values from `.env.example` in the server environment. `SUPABASE_SERVICE_ROLE_KEY`, `ADMIN_ACCESS_KEY`, and `SESSION_SECRET` are server-only; never expose the service-role key through a `NEXT_PUBLIC_*` variable. Use a unique admin key of at least 16 characters and a session secret of at least 32 characters.
-4. Configure the Supabase Auth redirect URLs for the deployed site if customer accounts are enabled.
-5. Verify `/api/health`. It reports database-schema and delivery-settings readiness without returning records. Sign in to `/admin`, set the store identity, currency, support email, and confirmed delivery terms, then save. Checkout stays disabled until the required settings are stored.
-6. Add and review the live catalog and promotions in admin. Card payments and outbound email are not integrated; checkout currently supports cash on delivery, and order/contact/newsletter records are stored without an email-delivery service.
+1. Create a **separate Supabase project for NEXVORO-1** and confirm its project ref. Do not reuse the older NEXVORO production database or any unrelated Supabase project. Take a backup before applying schema changes.
+2. Apply the SQL migrations in order to that dedicated project: `202611140001_nexvoro_store.sql`, `202611140002_multi_currency.sql`, then `202611140003_admin_accounts.sql`. The commerce migrations create separate `nexvoro_*` tables; the admin migration creates a server-only Super Admin table protected by row-level security.
+3. Configure server-side `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, and `SESSION_SECRET` (at least 32 random characters) in `.env.local` for provisioning and in the deployment environment for the app. The service-role key and session secret must never use a `NEXT_PUBLIC_*` name or reach the browser.
+4. Run `npm run admin:create` from an interactive terminal. The script confirms the Supabase project ref, reads the admin name and username, prompts for the password without echoing it, hashes it with bcrypt (cost 12), and inserts a `SUPER_ADMIN` record with first-login password change required. It never prints the password and refuses to overwrite an existing username.
+5. Verify `/api/health`, then open `/admin` and sign in. The first login is restricted to the password-change screen; changing to a new password is required before dashboard data or admin APIs are available. Later password updates are available under **Admin → Store settings → Super Admin account security**. All admin data and write/upload APIs require a live, database-verified `SUPER_ADMIN` session.
+6. Set the store identity, currency, support email, and confirmed delivery terms before enabling checkout. Add and review the live catalog and promotions. Card payments and outbound email are not integrated; checkout currently supports cash on delivery, and order/contact/newsletter records are stored without an email-delivery service.
 
-Do not run a migration or seed against a production project until the target schema and backup have been confirmed.
+The account provisioner requires the admin migration to be applied and valid server-side Supabase credentials. It makes no change if the target project ref is not confirmed, the migration is missing, or the username already exists. Do not run migrations or seeding against a production project until the project, schema, and backup have been confirmed.
 
 ## Catalog review and seed
 

@@ -91,7 +91,9 @@ function dbProduct(row: Record<string, unknown>) {
 }
 
 export async function GET(request: NextRequest) {
-  if (!getAdminSession(request)) return NextResponse.json({ error: "Admin sign-in required." }, { status: 401 });
+  const admin = await getAdminSession(request);
+  if (!admin || admin.role !== "SUPER_ADMIN") return NextResponse.json({ error: "Super Admin sign-in required." }, { status: 401, headers: { "cache-control": "no-store" } });
+  if (admin.mustChangePassword) return NextResponse.json({ error: "Change the initial password before accessing admin data." }, { status: 403, headers: { "cache-control": "no-store" } });
   const db = getDatabase();
   if (!db) return NextResponse.json({ error: "Supabase is not configured." }, { status: 503 });
   try {
@@ -147,7 +149,9 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   const origin = request.headers.get("origin");
   if (origin && origin !== request.nextUrl.origin) return NextResponse.json({ error: "Cross-origin admin change rejected." }, { status: 403 });
-  if (!getAdminSession(request)) return NextResponse.json({ error: "Admin sign-in required." }, { status: 401 });
+  const admin = await getAdminSession(request);
+  if (!admin || admin.role !== "SUPER_ADMIN") return NextResponse.json({ error: "Super Admin sign-in required." }, { status: 401, headers: { "cache-control": "no-store" } });
+  if (admin.mustChangePassword) return NextResponse.json({ error: "Change the initial password before accessing admin data." }, { status: 403, headers: { "cache-control": "no-store" } });
   const db = getDatabase();
   if (!db || !databaseConfigured()) return NextResponse.json({ error: "Supabase is not configured." }, { status: 503 });
   const rawBody = await readJsonBody(request, 256_000);

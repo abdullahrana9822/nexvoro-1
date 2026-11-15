@@ -139,6 +139,9 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   const [commerceConfigured, setCommerceConfigured] = useState(false);
   const [adminConfigured, setAdminConfigured] = useState(false);
   const [adminAuthenticated, setAdminAuthenticated] = useState(false);
+  const [adminMustChangePassword, setAdminMustChangePassword] = useState(false);
+  const [adminRole, setAdminRole] = useState<"SUPER_ADMIN" | null>(null);
+  const [adminDisplayName, setAdminDisplayName] = useState<string | null>(null);
   const [toasts, setToasts] = useState<ToastNotice[]>([]);
 
   const notify = useCallback((message: string, kind: ToastNotice["kind"] = "success") => {
@@ -192,8 +195,14 @@ export function StoreProvider({ children }: { children: ReactNode }) {
         setAdminConfigured(false);
       });
     fetch("/api/admin/session", { cache: "no-store" })
-      .then((response) => response.ok ? responseJson(response) : null)
-      .then((data) => { if (data?.authenticated) setAdminAuthenticated(true); })
+      .then(responseJson)
+      .then((data) => {
+        setAdminConfigured(data?.configured === true);
+        setAdminAuthenticated(data?.authenticated === true && data?.role === "SUPER_ADMIN");
+        setAdminRole(data?.authenticated === true && data?.role === "SUPER_ADMIN" ? "SUPER_ADMIN" : null);
+        setAdminMustChangePassword(data?.authenticated === true && data?.mustChangePassword === true);
+        setAdminDisplayName(data?.authenticated === true && typeof data?.displayName === "string" ? data.displayName : null);
+      })
       .catch(() => undefined);
     fetch("/api/store", { cache: "no-store" })
       .then((response) => response.ok ? responseJson(response) : null)
@@ -513,39 +522,75 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     if (snapshot.settings) setSettings((current) => ({ ...current, ...snapshot.settings }));
   }, []);
 
-  const loginAdmin = useCallback(async (key: string) => {
+  const loginAdmin = useCallback(async (username: string, password: string) => {
     try {
       const response = await fetch("/api/admin/login", {
-        method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ key }),
+        method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ username, password }),
       });
       const data = await responseJson(response);
-      if (!response.ok) { notify(data?.error || "Admin sign-in failed.", "error"); return false; }
+      if (!response.ok || data?.role !== "SUPER_ADMIN") {
+        notify(data?.error || "Super Admin sign-in failed.", "error");
+        return false;
+      }
       setAdminAuthenticated(true);
+      setAdminRole("SUPER_ADMIN");
+      setAdminMustChangePassword(data.mustChangePassword === true);
+      setAdminDisplayName(typeof data.displayName === "string" ? data.displayName : null);
       return true;
-    } catch { notify("Admin sign-in could not reach the server.", "error"); return false; }
+    } catch {
+      notify("Admin sign-in could not reach the server.", "error");
+      return false;
+    }
+  }, [notify]);
+
+  const changeAdminPassword = useCallback(async (currentPassword: string, newPassword: string) => {
+    try {
+      const response = await fetch("/api/admin/password", {
+        method: "POST", headers: { "content-type": "application/json" },
+        body: JSON.stringify({ currentPassword, newPassword }),
+      });
+      const data = await responseJson(response);
+      if (!response.ok) {
+        notify(data?.error || "Password change failed.", "error");
+        return false;
+      }
+      setAdminAuthenticated(true);
+      setAdminRole("SUPER_ADMIN");
+      setAdminMustChangePassword(false);
+      notify("Admin password changed. Other active sessions have been signed out.", "success");
+      return true;
+    } catch {
+      notify("Password change could not reach the server.", "error");
+      return false;
+    }
   }, [notify]);
 
   const logoutAdmin = useCallback(async () => {
     try { await fetch("/api/admin/session", { method: "DELETE" }); } catch { /* local state still closes the session */ }
     setAdminAuthenticated(false);
+    setAdminMustChangePassword(false);
+    setAdminRole(null);
+    setAdminDisplayName(null);
   }, []);
 
   const value = useMemo<ContextShape>(() => ({
     products, categories, cart, wishlist, compare, recent, orders, coupons, banners, reviews,
     settings, displayCurrency, exchangeRates, exchangeRateSources, exchangeRateUpdatedAt, exchangeRateStatus,
-    setDisplayCurrency, formatPrice, convertDisplayAmount, theme, ready, databaseStatus, commerceConfigured, adminAuthenticated, adminConfigured, toasts, customers,
+    setDisplayCurrency, formatPrice, convertDisplayAmount, theme, ready, databaseStatus, commerceConfigured,
+    adminAuthenticated, adminConfigured, adminMustChangePassword, adminRole, adminDisplayName, toasts, customers,
     setCustomers, setTheme, updateSettings, addToCart, removeFromCart, setCartQuantity,
     clearCart, toggleWishlist, toggleCompare, recordView, notify, saveProduct,
     archiveProduct, saveCategory, archiveCategory, saveCustomer, saveOrder, updateOrder, saveCoupon, saveBanner,
-    saveReview, moderateReview, checkout, applyDatabaseSnapshot, loginAdmin, logoutAdmin,
+    saveReview, moderateReview, checkout, applyDatabaseSnapshot, loginAdmin, changeAdminPassword, logoutAdmin,
   }), [
     products, categories, cart, wishlist, compare, recent, orders, coupons, banners, reviews,
     settings, displayCurrency, exchangeRates, exchangeRateSources, exchangeRateUpdatedAt, exchangeRateStatus,
-    setDisplayCurrency, formatPrice, convertDisplayAmount, theme, ready, databaseStatus, commerceConfigured, adminAuthenticated, adminConfigured, toasts, customers,
+    setDisplayCurrency, formatPrice, convertDisplayAmount, theme, ready, databaseStatus, commerceConfigured,
+    adminAuthenticated, adminConfigured, adminMustChangePassword, adminRole, adminDisplayName, toasts, customers,
     setTheme, updateSettings, addToCart, removeFromCart, setCartQuantity, clearCart,
     toggleWishlist, toggleCompare, recordView, notify, saveProduct, archiveProduct,
     saveCategory, archiveCategory, saveCustomer, saveOrder, updateOrder, saveCoupon, saveBanner, saveReview, moderateReview, checkout,
-    applyDatabaseSnapshot, loginAdmin, logoutAdmin,
+    applyDatabaseSnapshot, loginAdmin, changeAdminPassword, logoutAdmin,
   ]);
 
   return <StoreContext.Provider value={value}>{children}</StoreContext.Provider>;
