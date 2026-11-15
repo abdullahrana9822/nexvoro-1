@@ -1,0 +1,2320 @@
+{
+  "categories": [
+    {
+      "slug": "smartphones",
+      "name": "Smartphones",
+      "eyebrow": "Pocket-sized power",
+      "description": "The best of mobile, chosen for the way you move."
+    },
+    {
+      "slug": "laptops",
+      "name": "Laptops",
+      "eyebrow": "Work, reimagined",
+      "description": "Beautifully capable machines for deep work and bold ideas."
+    },
+    {
+      "slug": "tablets",
+      "name": "Tablets",
+      "eyebrow": "A bigger perspective",
+      "description": "Light, versatile screens for your next great idea."
+    },
+    {
+      "slug": "headphones",
+      "name": "Headphones",
+      "eyebrow": "Hear every detail",
+      "description": "Immersive sound, beautifully engineered for everyday listening."
+    },
+    {
+      "slug": "earbuds",
+      "name": "Earbuds",
+      "eyebrow": "Sound, on the move",
+      "description": "Pocket-ready listening with thoughtful sound and comfort."
+    },
+    {
+      "slug": "smart-watches",
+      "name": "Smart Watches",
+      "eyebrow": "Time well spent",
+      "description": "Useful health, movement and everyday insights at a glance."
+    },
+    {
+      "slug": "gaming-accessories",
+      "name": "Gaming Accessories",
+      "eyebrow": "Level up",
+      "description": "Precision gear for longer sessions and closer wins."
+    },
+    {
+      "slug": "gaming-consoles",
+      "name": "Gaming Consoles",
+      "eyebrow": "Play without limits",
+      "description": "Immersive worlds, made for the whole room."
+    },
+    {
+      "slug": "speakers",
+      "name": "Speakers",
+      "eyebrow": "Sound that fills a room",
+      "description": "Room-filling audio with design that belongs in your home."
+    },
+    {
+      "slug": "cameras",
+      "name": "Cameras",
+      "eyebrow": "Keep the moment",
+      "description": "Creative tools for the stories worth keeping."
+    },
+    {
+      "slug": "smart-home",
+      "name": "Smart Home Devices",
+      "eyebrow": "A more considered home",
+      "description": "Small thoughtful upgrades for a home that works in sync."
+    },
+    {
+      "slug": "computer-accessories",
+      "name": "Computer Accessories",
+      "eyebrow": "The finer setup",
+      "description": "Purposeful add-ons that make your workspace work harder."
+    },
+    {
+      "slug": "monitors",
+      "name": "Monitors",
+      "eyebrow": "See the bigger picture",
+      "description": "More room to create, play and get into the details."
+    },
+    {
+      "slug": "keyboards-mice",
+      "name": "Keyboards and Mice",
+      "eyebrow": "Made for your hands",
+      "description": "Comfortable, precise input for work and play."
+    },
+    {
+      "slug": "power-banks-chargers",
+      "name": "Power Banks and Chargers",
+      "eyebrow": "Power, wherever you are",
+      "description": "Reliable power for busy days and every device you carry."
+    }
+  ],
+  "products": [
+    {
+      "id": "iphone-16-pro",
+      "slug": "iphone-16-pro",
+      "sku": "NV-SMA-001",
+      "name": "iPhone 16 Pro",
+      "brand": "Apple",
+      "category": "smartphones",
+      "price": 409000,
+      "compareAt": 409000,
+      "description": "A thoughtfully selected smartphones choice from Apple. 6.3-inch Super Retina XDR · A18 Pro · 48MP camera system. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "6.3-inch Super Retina XDR · A18 Pro · 48MP camera system",
+        "Brand": "Apple",
+        "Category": "Smartphones",
+        "Availability": "In stock"
+      },
+      "stock": 18,
+      "variants": [
+        "Natural Titanium",
+        "256GB"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": true,
+      "bestseller": true,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "galaxy-s24-ultra",
+        "pixel-9-pro",
+        "oneplus-12"
+      ],
+      "tags": [
+        "editor-pick"
+      ]
+    },
+    {
+      "id": "galaxy-s24-ultra",
+      "slug": "galaxy-s24-ultra",
+      "sku": "NV-SMA-002",
+      "name": "Galaxy S24 Ultra",
+      "brand": "Samsung",
+      "category": "smartphones",
+      "price": 389000,
+      "compareAt": 389000,
+      "description": "A thoughtfully selected smartphones choice from Samsung. 6.8-inch QHD+ AMOLED · Snapdragon 8 Gen 3 · 200MP camera. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "6.8-inch QHD+ AMOLED · Snapdragon 8 Gen 3 · 200MP camera",
+        "Brand": "Samsung",
+        "Category": "Smartphones",
+        "Availability": "In stock"
+      },
+      "stock": 14,
+      "variants": [
+        "Titanium Gray",
+        "256GB"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1592899677977-9c10ca588bb6?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": true,
+      "bestseller": false,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "iphone-16-pro",
+        "pixel-9-pro",
+        "oneplus-12"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pixel-9-pro",
+      "slug": "pixel-9-pro",
+      "sku": "NV-SMA-003",
+      "name": "Pixel 9 Pro",
+      "brand": "Google",
+      "category": "smartphones",
+      "price": 365000,
+      "compareAt": 365000,
+      "description": "A thoughtfully selected smartphones choice from Google. 6.3-inch LTPO OLED · Tensor G4 · triple rear camera. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "6.3-inch LTPO OLED · Tensor G4 · triple rear camera",
+        "Brand": "Google",
+        "Category": "Smartphones",
+        "Availability": "In stock"
+      },
+      "stock": 11,
+      "variants": [
+        "Obsidian",
+        "256GB"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": false,
+      "bestseller": false,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "iphone-16-pro",
+        "galaxy-s24-ultra",
+        "oneplus-12"
+      ],
+      "tags": []
+    },
+    {
+      "id": "oneplus-12",
+      "slug": "oneplus-12",
+      "sku": "NV-SMA-004",
+      "name": "OnePlus 12",
+      "brand": "OnePlus",
+      "category": "smartphones",
+      "price": 329000,
+      "compareAt": 329000,
+      "description": "A thoughtfully selected smartphones choice from OnePlus. 6.82-inch 2K AMOLED · Snapdragon 8 Gen 3 · 5400mAh battery. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "6.82-inch 2K AMOLED · Snapdragon 8 Gen 3 · 5400mAh battery",
+        "Brand": "OnePlus",
+        "Category": "Smartphones",
+        "Availability": "In stock"
+      },
+      "stock": 16,
+      "variants": [
+        "Silky Black",
+        "256GB"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1605236453806-6ff36851218e?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": false,
+      "bestseller": false,
+      "newArrival": true,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "iphone-16-pro",
+        "galaxy-s24-ultra",
+        "pixel-9-pro"
+      ],
+      "tags": [
+        "new-arrival"
+      ]
+    },
+    {
+      "id": "xiaomi-14-ultra",
+      "slug": "xiaomi-14-ultra",
+      "sku": "NV-SMA-005",
+      "name": "Xiaomi 14 Ultra",
+      "brand": "Xiaomi",
+      "category": "smartphones",
+      "price": 339000,
+      "compareAt": 339000,
+      "description": "A thoughtfully selected smartphones choice from Xiaomi. 6.73-inch LTPO AMOLED · Leica quad camera · 90W wired charging. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "6.73-inch LTPO AMOLED · Leica quad camera · 90W wired charging",
+        "Brand": "Xiaomi",
+        "Category": "Smartphones",
+        "Availability": "In stock"
+      },
+      "stock": 9,
+      "variants": [
+        "Black",
+        "512GB"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1556656793-08538906a9f8?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": false,
+      "bestseller": false,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "iphone-16-pro",
+        "galaxy-s24-ultra",
+        "pixel-9-pro"
+      ],
+      "tags": []
+    },
+    {
+      "id": "macbook-pro-14-inch-m4",
+      "slug": "macbook-pro-14-inch-m4",
+      "sku": "NV-LAP-001",
+      "name": "MacBook Pro 14-inch M4",
+      "brand": "Apple",
+      "category": "laptops",
+      "price": 999000,
+      "compareAt": 999000,
+      "description": "A thoughtfully selected laptops choice from Apple. M4 chip · 14.2-inch Liquid Retina XDR · up to 24-hour video playback. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "M4 chip · 14.2-inch Liquid Retina XDR · up to 24-hour video playback",
+        "Brand": "Apple",
+        "Category": "Laptops",
+        "Availability": "In stock"
+      },
+      "stock": 7,
+      "variants": [
+        "Space Black",
+        "16GB",
+        "512GB"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": true,
+      "bestseller": false,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "xps-14",
+        "rog-zephyrus-g16",
+        "yoga-pro-9i"
+      ],
+      "tags": [
+        "editor-pick"
+      ]
+    },
+    {
+      "id": "xps-14",
+      "slug": "xps-14",
+      "sku": "NV-LAP-002",
+      "name": "XPS 14",
+      "brand": "Dell",
+      "category": "laptops",
+      "price": 899000,
+      "compareAt": 899000,
+      "description": "A thoughtfully selected laptops choice from Dell. Intel Core Ultra 7 · 14.5-inch 3.2K OLED · 1TB NVMe storage. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "Intel Core Ultra 7 · 14.5-inch 3.2K OLED · 1TB NVMe storage",
+        "Brand": "Dell",
+        "Category": "Laptops",
+        "Availability": "In stock"
+      },
+      "stock": 8,
+      "variants": [
+        "Graphite",
+        "16GB",
+        "1TB"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": true,
+      "bestseller": false,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "macbook-pro-14-inch-m4",
+        "rog-zephyrus-g16",
+        "yoga-pro-9i"
+      ],
+      "tags": []
+    },
+    {
+      "id": "rog-zephyrus-g16",
+      "slug": "rog-zephyrus-g16",
+      "sku": "NV-LAP-003",
+      "name": "ROG Zephyrus G16",
+      "brand": "ASUS",
+      "category": "laptops",
+      "price": 849000,
+      "compareAt": 849000,
+      "description": "A thoughtfully selected laptops choice from ASUS. Intel Core Ultra 9 · NVIDIA GeForce RTX 4070 · 16-inch 240Hz OLED. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "Intel Core Ultra 9 · NVIDIA GeForce RTX 4070 · 16-inch 240Hz OLED",
+        "Brand": "ASUS",
+        "Category": "Laptops",
+        "Availability": "In stock"
+      },
+      "stock": 5,
+      "variants": [
+        "Eclipse Gray",
+        "16GB",
+        "1TB"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": false,
+      "bestseller": false,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "macbook-pro-14-inch-m4",
+        "xps-14",
+        "yoga-pro-9i"
+      ],
+      "tags": []
+    },
+    {
+      "id": "yoga-pro-9i",
+      "slug": "yoga-pro-9i",
+      "sku": "NV-LAP-004",
+      "name": "Yoga Pro 9i",
+      "brand": "Lenovo",
+      "category": "laptops",
+      "price": 819000,
+      "compareAt": 819000,
+      "description": "A thoughtfully selected laptops choice from Lenovo. Intel Core Ultra 9 · 16-inch 3.2K PureSight Pro · NVIDIA RTX 4060. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "Intel Core Ultra 9 · 16-inch 3.2K PureSight Pro · NVIDIA RTX 4060",
+        "Brand": "Lenovo",
+        "Category": "Laptops",
+        "Availability": "In stock"
+      },
+      "stock": 6,
+      "variants": [
+        "Storm Grey",
+        "32GB",
+        "1TB"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": false,
+      "bestseller": false,
+      "newArrival": true,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "macbook-pro-14-inch-m4",
+        "xps-14",
+        "rog-zephyrus-g16"
+      ],
+      "tags": [
+        "new-arrival"
+      ]
+    },
+    {
+      "id": "ipad-pro-13-inch-m4",
+      "slug": "ipad-pro-13-inch-m4",
+      "sku": "NV-TAB-001",
+      "name": "iPad Pro 13-inch M4",
+      "brand": "Apple",
+      "category": "tablets",
+      "price": 699000,
+      "compareAt": 699000,
+      "description": "A thoughtfully selected tablets choice from Apple. 13-inch Ultra Retina XDR · M4 chip · Apple Pencil Pro compatible. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "13-inch Ultra Retina XDR · M4 chip · Apple Pencil Pro compatible",
+        "Brand": "Apple",
+        "Category": "Tablets",
+        "Availability": "In stock"
+      },
+      "stock": 8,
+      "variants": [
+        "Space Black",
+        "256GB"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": true,
+      "bestseller": false,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "galaxy-tab-s10-ultra",
+        "oneplus-pad-2",
+        "remarkable-paper-pro"
+      ],
+      "tags": [
+        "editor-pick"
+      ]
+    },
+    {
+      "id": "galaxy-tab-s10-ultra",
+      "slug": "galaxy-tab-s10-ultra",
+      "sku": "NV-TAB-002",
+      "name": "Galaxy Tab S10 Ultra",
+      "brand": "Samsung",
+      "category": "tablets",
+      "price": 479000,
+      "compareAt": 479000,
+      "description": "A thoughtfully selected tablets choice from Samsung. 14.6-inch Dynamic AMOLED 2X · S Pen included · Wi-Fi 7. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "14.6-inch Dynamic AMOLED 2X · S Pen included · Wi-Fi 7",
+        "Brand": "Samsung",
+        "Category": "Tablets",
+        "Availability": "In stock"
+      },
+      "stock": 9,
+      "variants": [
+        "Moonstone Gray",
+        "256GB"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1561154464-82e9adf32764?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": false,
+      "bestseller": false,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "ipad-pro-13-inch-m4",
+        "oneplus-pad-2",
+        "remarkable-paper-pro"
+      ],
+      "tags": []
+    },
+    {
+      "id": "oneplus-pad-2",
+      "slug": "oneplus-pad-2",
+      "sku": "NV-TAB-003",
+      "name": "OnePlus Pad 2",
+      "brand": "OnePlus",
+      "category": "tablets",
+      "price": 269000,
+      "compareAt": 269000,
+      "description": "A thoughtfully selected tablets choice from OnePlus. 12.1-inch 3K display · Snapdragon 8 Gen 3 · 67W SUPERVOOC. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "12.1-inch 3K display · Snapdragon 8 Gen 3 · 67W SUPERVOOC",
+        "Brand": "OnePlus",
+        "Category": "Tablets",
+        "Availability": "In stock"
+      },
+      "stock": 12,
+      "variants": [
+        "Nimbus Gray",
+        "256GB"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1589739900243-4b52cd9dd8df?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": false,
+      "bestseller": false,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "ipad-pro-13-inch-m4",
+        "galaxy-tab-s10-ultra",
+        "remarkable-paper-pro"
+      ],
+      "tags": []
+    },
+    {
+      "id": "remarkable-paper-pro",
+      "slug": "remarkable-paper-pro",
+      "sku": "NV-TAB-004",
+      "name": "reMarkable Paper Pro",
+      "brand": "reMarkable",
+      "category": "tablets",
+      "price": 319000,
+      "compareAt": 319000,
+      "description": "A thoughtfully selected tablets choice from reMarkable. 11.8-inch color E Ink · paper-like writing · up to 2 weeks battery. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "11.8-inch color E Ink · paper-like writing · up to 2 weeks battery",
+        "Brand": "reMarkable",
+        "Category": "Tablets",
+        "Availability": "In stock"
+      },
+      "stock": 6,
+      "variants": [
+        "Marker Plus bundle"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": false,
+      "bestseller": false,
+      "newArrival": true,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "ipad-pro-13-inch-m4",
+        "galaxy-tab-s10-ultra",
+        "oneplus-pad-2"
+      ],
+      "tags": [
+        "new-arrival"
+      ]
+    },
+    {
+      "id": "wh-1000xm5",
+      "slug": "wh-1000xm5",
+      "sku": "NV-HEA-001",
+      "name": "WH-1000XM5",
+      "brand": "Sony",
+      "category": "headphones",
+      "price": 129000,
+      "compareAt": 129000,
+      "description": "A thoughtfully selected headphones choice from Sony. Industry-leading noise cancellation · 30-hour battery · multipoint Bluetooth. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "Industry-leading noise cancellation · 30-hour battery · multipoint Bluetooth",
+        "Brand": "Sony",
+        "Category": "Headphones",
+        "Availability": "In stock"
+      },
+      "stock": 15,
+      "variants": [
+        "Black"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": true,
+      "bestseller": true,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "quietcomfort-ultra-headphones",
+        "airpods-max-usb-c",
+        "momentum-4-wireless"
+      ],
+      "tags": [
+        "editor-pick"
+      ]
+    },
+    {
+      "id": "quietcomfort-ultra-headphones",
+      "slug": "quietcomfort-ultra-headphones",
+      "sku": "NV-HEA-002",
+      "name": "QuietComfort Ultra Headphones",
+      "brand": "Bose",
+      "category": "headphones",
+      "price": 139000,
+      "compareAt": 139000,
+      "description": "A thoughtfully selected headphones choice from Bose. Immersive Audio · CustomTune sound · up to 24 hours listening. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "Immersive Audio · CustomTune sound · up to 24 hours listening",
+        "Brand": "Bose",
+        "Category": "Headphones",
+        "Availability": "In stock"
+      },
+      "stock": 10,
+      "variants": [
+        "Black"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": true,
+      "bestseller": false,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "wh-1000xm5",
+        "airpods-max-usb-c",
+        "momentum-4-wireless"
+      ],
+      "tags": []
+    },
+    {
+      "id": "airpods-max-usb-c",
+      "slug": "airpods-max-usb-c",
+      "sku": "NV-HEA-003",
+      "name": "AirPods Max USB-C",
+      "brand": "Apple",
+      "category": "headphones",
+      "price": 179000,
+      "compareAt": 179000,
+      "description": "A thoughtfully selected headphones choice from Apple. Personalized Spatial Audio · active noise cancellation · USB-C. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "Personalized Spatial Audio · active noise cancellation · USB-C",
+        "Brand": "Apple",
+        "Category": "Headphones",
+        "Availability": "In stock"
+      },
+      "stock": 7,
+      "variants": [
+        "Midnight"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": false,
+      "bestseller": false,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "wh-1000xm5",
+        "quietcomfort-ultra-headphones",
+        "momentum-4-wireless"
+      ],
+      "tags": []
+    },
+    {
+      "id": "momentum-4-wireless",
+      "slug": "momentum-4-wireless",
+      "sku": "NV-HEA-004",
+      "name": "Momentum 4 Wireless",
+      "brand": "Sennheiser",
+      "category": "headphones",
+      "price": 104000,
+      "compareAt": 104000,
+      "description": "A thoughtfully selected headphones choice from Sennheiser. Adaptive noise cancellation · 60-hour battery · aptX Adaptive. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "Adaptive noise cancellation · 60-hour battery · aptX Adaptive",
+        "Brand": "Sennheiser",
+        "Category": "Headphones",
+        "Availability": "In stock"
+      },
+      "stock": 8,
+      "variants": [
+        "Graphite"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": false,
+      "bestseller": false,
+      "newArrival": true,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "wh-1000xm5",
+        "quietcomfort-ultra-headphones",
+        "airpods-max-usb-c"
+      ],
+      "tags": [
+        "new-arrival"
+      ]
+    },
+    {
+      "id": "airpods-pro-2nd-generation",
+      "slug": "airpods-pro-2nd-generation",
+      "sku": "NV-EAR-001",
+      "name": "AirPods Pro (2nd generation)",
+      "brand": "Apple",
+      "category": "earbuds",
+      "price": 79900,
+      "compareAt": 79900,
+      "description": "A thoughtfully selected earbuds choice from Apple. Active noise cancellation · Adaptive Audio · MagSafe USB-C case. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "Active noise cancellation · Adaptive Audio · MagSafe USB-C case",
+        "Brand": "Apple",
+        "Category": "Earbuds",
+        "Availability": "In stock"
+      },
+      "stock": 24,
+      "variants": [
+        "White"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": true,
+      "bestseller": true,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "wf-1000xm5",
+        "quietcomfort-ultra-earbuds",
+        "ear"
+      ],
+      "tags": [
+        "editor-pick"
+      ]
+    },
+    {
+      "id": "wf-1000xm5",
+      "slug": "wf-1000xm5",
+      "sku": "NV-EAR-002",
+      "name": "WF-1000XM5",
+      "brand": "Sony",
+      "category": "earbuds",
+      "price": 99900,
+      "compareAt": 99900,
+      "description": "A thoughtfully selected earbuds choice from Sony. Premium noise cancellation · high-resolution audio · multipoint connection. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "Premium noise cancellation · high-resolution audio · multipoint connection",
+        "Brand": "Sony",
+        "Category": "Earbuds",
+        "Availability": "In stock"
+      },
+      "stock": 14,
+      "variants": [
+        "Black"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": false,
+      "bestseller": false,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "airpods-pro-2nd-generation",
+        "quietcomfort-ultra-earbuds",
+        "ear"
+      ],
+      "tags": []
+    },
+    {
+      "id": "quietcomfort-ultra-earbuds",
+      "slug": "quietcomfort-ultra-earbuds",
+      "sku": "NV-EAR-003",
+      "name": "QuietComfort Ultra Earbuds",
+      "brand": "Bose",
+      "category": "earbuds",
+      "price": 89900,
+      "compareAt": 89900,
+      "description": "A thoughtfully selected earbuds choice from Bose. CustomTune audio · immersive listening modes · secure-fit bands. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "CustomTune audio · immersive listening modes · secure-fit bands",
+        "Brand": "Bose",
+        "Category": "Earbuds",
+        "Availability": "In stock"
+      },
+      "stock": 10,
+      "variants": [
+        "Black"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1608156639585-b3a032ef9689?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": false,
+      "bestseller": false,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "airpods-pro-2nd-generation",
+        "wf-1000xm5",
+        "ear"
+      ],
+      "tags": []
+    },
+    {
+      "id": "ear",
+      "slug": "ear",
+      "sku": "NV-EAR-004",
+      "name": "Ear",
+      "brand": "Nothing",
+      "category": "earbuds",
+      "price": 69900,
+      "compareAt": 69900,
+      "description": "A thoughtfully selected earbuds choice from Nothing. 11mm driver · adaptive noise cancellation · dual connection. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "11mm driver · adaptive noise cancellation · dual connection",
+        "Brand": "Nothing",
+        "Category": "Earbuds",
+        "Availability": "In stock"
+      },
+      "stock": 17,
+      "variants": [
+        "Transparent Black"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1628815113969-048d3ffc4f5f?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": false,
+      "bestseller": false,
+      "newArrival": true,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "airpods-pro-2nd-generation",
+        "wf-1000xm5",
+        "quietcomfort-ultra-earbuds"
+      ],
+      "tags": [
+        "new-arrival"
+      ]
+    },
+    {
+      "id": "apple-watch-series-10",
+      "slug": "apple-watch-series-10",
+      "sku": "NV-SWA-001",
+      "name": "Apple Watch Series 10",
+      "brand": "Apple",
+      "category": "smart-watches",
+      "price": 149000,
+      "compareAt": 149000,
+      "description": "A thoughtfully selected smart watches choice from Apple. Wide-angle OLED · ECG and sleep tracking · fast charging. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "Wide-angle OLED · ECG and sleep tracking · fast charging",
+        "Brand": "Apple",
+        "Category": "Smart Watches",
+        "Availability": "In stock"
+      },
+      "stock": 13,
+      "variants": [
+        "Jet Black",
+        "46mm"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": true,
+      "bestseller": false,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "galaxy-watch-ultra",
+        "f-nix-8-amoled",
+        "pixel-watch-3"
+      ],
+      "tags": [
+        "editor-pick"
+      ]
+    },
+    {
+      "id": "galaxy-watch-ultra",
+      "slug": "galaxy-watch-ultra",
+      "sku": "NV-SWA-002",
+      "name": "Galaxy Watch Ultra",
+      "brand": "Samsung",
+      "category": "smart-watches",
+      "price": 199000,
+      "compareAt": 199000,
+      "description": "A thoughtfully selected smart watches choice from Samsung. Titanium case · dual-frequency GPS · 10ATM water resistance. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "Titanium case · dual-frequency GPS · 10ATM water resistance",
+        "Brand": "Samsung",
+        "Category": "Smart Watches",
+        "Availability": "In stock"
+      },
+      "stock": 8,
+      "variants": [
+        "Titanium Gray",
+        "47mm"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": false,
+      "bestseller": false,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "apple-watch-series-10",
+        "f-nix-8-amoled",
+        "pixel-watch-3"
+      ],
+      "tags": []
+    },
+    {
+      "id": "f-nix-8-amoled",
+      "slug": "f-nix-8-amoled",
+      "sku": "NV-SWA-003",
+      "name": "fēnix 8 AMOLED",
+      "brand": "Garmin",
+      "category": "smart-watches",
+      "price": 249000,
+      "compareAt": 249000,
+      "description": "A thoughtfully selected smart watches choice from Garmin. AMOLED display · multi-band GPS · up to 16 days smartwatch battery. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "AMOLED display · multi-band GPS · up to 16 days smartwatch battery",
+        "Brand": "Garmin",
+        "Category": "Smart Watches",
+        "Availability": "In stock"
+      },
+      "stock": 5,
+      "variants": [
+        "Slate Gray",
+        "47mm"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": false,
+      "bestseller": false,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "apple-watch-series-10",
+        "galaxy-watch-ultra",
+        "pixel-watch-3"
+      ],
+      "tags": []
+    },
+    {
+      "id": "pixel-watch-3",
+      "slug": "pixel-watch-3",
+      "sku": "NV-SWA-004",
+      "name": "Pixel Watch 3",
+      "brand": "Google",
+      "category": "smart-watches",
+      "price": 139000,
+      "compareAt": 139000,
+      "description": "A thoughtfully selected smart watches choice from Google. Actua display · Fitbit health features · Wear OS with Google apps. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "Actua display · Fitbit health features · Wear OS with Google apps",
+        "Brand": "Google",
+        "Category": "Smart Watches",
+        "Availability": "In stock"
+      },
+      "stock": 9,
+      "variants": [
+        "Matte Black",
+        "45mm"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": false,
+      "bestseller": false,
+      "newArrival": true,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "apple-watch-series-10",
+        "galaxy-watch-ultra",
+        "f-nix-8-amoled"
+      ],
+      "tags": [
+        "new-arrival"
+      ]
+    },
+    {
+      "id": "dualsense-edge-wireless-controller",
+      "slug": "dualsense-edge-wireless-controller",
+      "sku": "NV-GAC-001",
+      "name": "DualSense Edge Wireless Controller",
+      "brand": "Sony",
+      "category": "gaming-accessories",
+      "price": 59900,
+      "compareAt": 59900,
+      "description": "A thoughtfully selected gaming accessories choice from Sony. Customizable controls · replaceable stick modules · carrying case included. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "Customizable controls · replaceable stick modules · carrying case included",
+        "Brand": "Sony",
+        "Category": "Gaming Accessories",
+        "Availability": "In stock"
+      },
+      "stock": 12,
+      "variants": [
+        "White"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": true,
+      "bestseller": false,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "xbox-elite-wireless-controller-series-2",
+        "g-pro-x-superlight-2",
+        "kishi-ultra"
+      ],
+      "tags": [
+        "editor-pick"
+      ]
+    },
+    {
+      "id": "xbox-elite-wireless-controller-series-2",
+      "slug": "xbox-elite-wireless-controller-series-2",
+      "sku": "NV-GAC-002",
+      "name": "Xbox Elite Wireless Controller Series 2",
+      "brand": "Microsoft",
+      "category": "gaming-accessories",
+      "price": 79900,
+      "compareAt": 79900,
+      "description": "A thoughtfully selected gaming accessories choice from Microsoft. Adjustable-tension thumbsticks · interchangeable components · Bluetooth. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "Adjustable-tension thumbsticks · interchangeable components · Bluetooth",
+        "Brand": "Microsoft",
+        "Category": "Gaming Accessories",
+        "Availability": "In stock"
+      },
+      "stock": 8,
+      "variants": [
+        "Black"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1594671581658-6759b1c0f3d1?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": false,
+      "bestseller": false,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "dualsense-edge-wireless-controller",
+        "g-pro-x-superlight-2",
+        "kishi-ultra"
+      ],
+      "tags": []
+    },
+    {
+      "id": "g-pro-x-superlight-2",
+      "slug": "g-pro-x-superlight-2",
+      "sku": "NV-GAC-003",
+      "name": "G PRO X SUPERLIGHT 2",
+      "brand": "Logitech G",
+      "category": "gaming-accessories",
+      "price": 54900,
+      "compareAt": 54900,
+      "description": "A thoughtfully selected gaming accessories choice from Logitech G. 60g wireless gaming mouse · HERO 2 sensor · up to 95-hour battery. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "60g wireless gaming mouse · HERO 2 sensor · up to 95-hour battery",
+        "Brand": "Logitech G",
+        "Category": "Gaming Accessories",
+        "Availability": "In stock"
+      },
+      "stock": 15,
+      "variants": [
+        "Black"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1603481546238-487240415921?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": false,
+      "bestseller": false,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "dualsense-edge-wireless-controller",
+        "xbox-elite-wireless-controller-series-2",
+        "kishi-ultra"
+      ],
+      "tags": []
+    },
+    {
+      "id": "kishi-ultra",
+      "slug": "kishi-ultra",
+      "sku": "NV-GAC-004",
+      "name": "Kishi Ultra",
+      "brand": "Razer",
+      "category": "gaming-accessories",
+      "price": 99900,
+      "compareAt": 99900,
+      "description": "A thoughtfully selected gaming accessories choice from Razer. Full-size mobile controller · USB-C connection · haptic feedback. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "Full-size mobile controller · USB-C connection · haptic feedback",
+        "Brand": "Razer",
+        "Category": "Gaming Accessories",
+        "Availability": "In stock"
+      },
+      "stock": 6,
+      "variants": [
+        "Black"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": false,
+      "bestseller": false,
+      "newArrival": true,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "dualsense-edge-wireless-controller",
+        "xbox-elite-wireless-controller-series-2",
+        "g-pro-x-superlight-2"
+      ],
+      "tags": [
+        "new-arrival"
+      ]
+    },
+    {
+      "id": "playstation-5-slim-digital-edition",
+      "slug": "playstation-5-slim-digital-edition",
+      "sku": "NV-GCO-001",
+      "name": "PlayStation 5 Slim Digital Edition",
+      "brand": "Sony",
+      "category": "gaming-consoles",
+      "price": 199000,
+      "compareAt": 199000,
+      "description": "A thoughtfully selected gaming consoles choice from Sony. Ultra-high-speed SSD · ray tracing · 4K gaming up to 120fps. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "Ultra-high-speed SSD · ray tracing · 4K gaming up to 120fps",
+        "Brand": "Sony",
+        "Category": "Gaming Consoles",
+        "Availability": "In stock"
+      },
+      "stock": 7,
+      "variants": [
+        "White",
+        "1TB"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": true,
+      "bestseller": true,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "xbox-series-x",
+        "nintendo-switch-oled",
+        "meta-quest-3"
+      ],
+      "tags": [
+        "editor-pick"
+      ]
+    },
+    {
+      "id": "xbox-series-x",
+      "slug": "xbox-series-x",
+      "sku": "NV-GCO-002",
+      "name": "Xbox Series X",
+      "brand": "Microsoft",
+      "category": "gaming-consoles",
+      "price": 219000,
+      "compareAt": 219000,
+      "description": "A thoughtfully selected gaming consoles choice from Microsoft. True 4K gaming · 1TB SSD · Quick Resume. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "True 4K gaming · 1TB SSD · Quick Resume",
+        "Brand": "Microsoft",
+        "Category": "Gaming Consoles",
+        "Availability": "In stock"
+      },
+      "stock": 5,
+      "variants": [
+        "Carbon Black",
+        "1TB"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1592840496694-26d035b52b48?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": true,
+      "bestseller": false,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "playstation-5-slim-digital-edition",
+        "nintendo-switch-oled",
+        "meta-quest-3"
+      ],
+      "tags": []
+    },
+    {
+      "id": "nintendo-switch-oled",
+      "slug": "nintendo-switch-oled",
+      "sku": "NV-GCO-003",
+      "name": "Nintendo Switch OLED",
+      "brand": "Nintendo",
+      "category": "gaming-consoles",
+      "price": 169000,
+      "compareAt": 169000,
+      "description": "A thoughtfully selected gaming consoles choice from Nintendo. 7-inch OLED screen · tabletop and TV modes · 64GB internal storage. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "7-inch OLED screen · tabletop and TV modes · 64GB internal storage",
+        "Brand": "Nintendo",
+        "Category": "Gaming Consoles",
+        "Availability": "In stock"
+      },
+      "stock": 9,
+      "variants": [
+        "White"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1605902711622-cfb43c4437d1?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": false,
+      "bestseller": false,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "playstation-5-slim-digital-edition",
+        "xbox-series-x",
+        "meta-quest-3"
+      ],
+      "tags": []
+    },
+    {
+      "id": "meta-quest-3",
+      "slug": "meta-quest-3",
+      "sku": "NV-GCO-004",
+      "name": "Meta Quest 3",
+      "brand": "Meta",
+      "category": "gaming-consoles",
+      "price": 249000,
+      "compareAt": 249000,
+      "description": "A thoughtfully selected gaming consoles choice from Meta. Mixed-reality headset · 4K+ Infinite Display · Touch Plus controllers. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "Mixed-reality headset · 4K+ Infinite Display · Touch Plus controllers",
+        "Brand": "Meta",
+        "Category": "Gaming Consoles",
+        "Availability": "In stock"
+      },
+      "stock": 6,
+      "variants": [
+        "White",
+        "512GB"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": false,
+      "bestseller": false,
+      "newArrival": true,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "playstation-5-slim-digital-edition",
+        "xbox-series-x",
+        "nintendo-switch-oled"
+      ],
+      "tags": [
+        "new-arrival"
+      ]
+    },
+    {
+      "id": "era-300",
+      "slug": "era-300",
+      "sku": "NV-SPE-001",
+      "name": "Era 300",
+      "brand": "Sonos",
+      "category": "speakers",
+      "price": 139000,
+      "compareAt": 139000,
+      "description": "A thoughtfully selected speakers choice from Sonos. Spatial audio with Dolby Atmos · Wi-Fi and Bluetooth · line-in ready. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "Spatial audio with Dolby Atmos · Wi-Fi and Bluetooth · line-in ready",
+        "Brand": "Sonos",
+        "Category": "Speakers",
+        "Availability": "In stock"
+      },
+      "stock": 7,
+      "variants": [
+        "Black"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": true,
+      "bestseller": true,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "charge-5",
+        "soundlink-max",
+        "stanmore-iii"
+      ],
+      "tags": [
+        "editor-pick"
+      ]
+    },
+    {
+      "id": "charge-5",
+      "slug": "charge-5",
+      "sku": "NV-SPE-002",
+      "name": "Charge 5",
+      "brand": "JBL",
+      "category": "speakers",
+      "price": 59900,
+      "compareAt": 59900,
+      "description": "A thoughtfully selected speakers choice from JBL. Portable Bluetooth speaker · IP67 rated · up to 20 hours playback. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "Portable Bluetooth speaker · IP67 rated · up to 20 hours playback",
+        "Brand": "JBL",
+        "Category": "Speakers",
+        "Availability": "In stock"
+      },
+      "stock": 18,
+      "variants": [
+        "Black"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": false,
+      "bestseller": false,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "era-300",
+        "soundlink-max",
+        "stanmore-iii"
+      ],
+      "tags": []
+    },
+    {
+      "id": "soundlink-max",
+      "slug": "soundlink-max",
+      "sku": "NV-SPE-003",
+      "name": "SoundLink Max",
+      "brand": "Bose",
+      "category": "speakers",
+      "price": 109000,
+      "compareAt": 109000,
+      "description": "A thoughtfully selected speakers choice from Bose. Stereo sound · up to 20-hour battery · water and dust resistant. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "Stereo sound · up to 20-hour battery · water and dust resistant",
+        "Brand": "Bose",
+        "Category": "Speakers",
+        "Availability": "In stock"
+      },
+      "stock": 6,
+      "variants": [
+        "Black"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1589003077984-894e133dabab?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": false,
+      "bestseller": false,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "era-300",
+        "charge-5",
+        "stanmore-iii"
+      ],
+      "tags": []
+    },
+    {
+      "id": "stanmore-iii",
+      "slug": "stanmore-iii",
+      "sku": "NV-SPE-004",
+      "name": "Stanmore III",
+      "brand": "Marshall",
+      "category": "speakers",
+      "price": 149000,
+      "compareAt": 149000,
+      "description": "A thoughtfully selected speakers choice from Marshall. Room-filling stereo · Bluetooth 5.2 · classic tactile controls. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "Room-filling stereo · Bluetooth 5.2 · classic tactile controls",
+        "Brand": "Marshall",
+        "Category": "Speakers",
+        "Availability": "In stock"
+      },
+      "stock": 5,
+      "variants": [
+        "Black"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1558089687-f282ffcbc0d4?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": false,
+      "bestseller": false,
+      "newArrival": true,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "era-300",
+        "charge-5",
+        "soundlink-max"
+      ],
+      "tags": [
+        "new-arrival"
+      ]
+    },
+    {
+      "id": "alpha-7-iv",
+      "slug": "alpha-7-iv",
+      "sku": "NV-CAM-001",
+      "name": "Alpha 7 IV",
+      "brand": "Sony",
+      "category": "cameras",
+      "price": 749000,
+      "compareAt": 749000,
+      "description": "A thoughtfully selected cameras choice from Sony. 33MP full-frame sensor · 4K 60p video · 10-bit 4:2:2 recording. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "33MP full-frame sensor · 4K 60p video · 10-bit 4:2:2 recording",
+        "Brand": "Sony",
+        "Category": "Cameras",
+        "Availability": "In stock"
+      },
+      "stock": 4,
+      "variants": [
+        "Body only"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": true,
+      "bestseller": false,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "eos-r6-mark-ii",
+        "x100vi",
+        "osmo-pocket-3"
+      ],
+      "tags": [
+        "editor-pick"
+      ]
+    },
+    {
+      "id": "eos-r6-mark-ii",
+      "slug": "eos-r6-mark-ii",
+      "sku": "NV-CAM-002",
+      "name": "EOS R6 Mark II",
+      "brand": "Canon",
+      "category": "cameras",
+      "price": 739000,
+      "compareAt": 739000,
+      "description": "A thoughtfully selected cameras choice from Canon. 24.2MP full-frame sensor · 4K 60p · subject-detection autofocus. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "24.2MP full-frame sensor · 4K 60p · subject-detection autofocus",
+        "Brand": "Canon",
+        "Category": "Cameras",
+        "Availability": "In stock"
+      },
+      "stock": 3,
+      "variants": [
+        "Body only"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": true,
+      "bestseller": false,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "alpha-7-iv",
+        "x100vi",
+        "osmo-pocket-3"
+      ],
+      "tags": []
+    },
+    {
+      "id": "x100vi",
+      "slug": "x100vi",
+      "sku": "NV-CAM-003",
+      "name": "X100VI",
+      "brand": "Fujifilm",
+      "category": "cameras",
+      "price": 899000,
+      "compareAt": 899000,
+      "description": "A thoughtfully selected cameras choice from Fujifilm. 40.2MP APS-C sensor · 23mm F2 lens · in-body image stabilization. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "40.2MP APS-C sensor · 23mm F2 lens · in-body image stabilization",
+        "Brand": "Fujifilm",
+        "Category": "Cameras",
+        "Availability": "In stock"
+      },
+      "stock": 2,
+      "variants": [
+        "Silver"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": false,
+      "bestseller": false,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "alpha-7-iv",
+        "eos-r6-mark-ii",
+        "osmo-pocket-3"
+      ],
+      "tags": []
+    },
+    {
+      "id": "osmo-pocket-3",
+      "slug": "osmo-pocket-3",
+      "sku": "NV-CAM-004",
+      "name": "Osmo Pocket 3",
+      "brand": "DJI",
+      "category": "cameras",
+      "price": 299000,
+      "compareAt": 299000,
+      "description": "A thoughtfully selected cameras choice from DJI. 1-inch CMOS sensor · 4K/120fps · 3-axis mechanical stabilization. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "1-inch CMOS sensor · 4K/120fps · 3-axis mechanical stabilization",
+        "Brand": "DJI",
+        "Category": "Cameras",
+        "Availability": "In stock"
+      },
+      "stock": 7,
+      "variants": [
+        "Creator Combo"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1510127034890-1e3c536e480c?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": false,
+      "bestseller": false,
+      "newArrival": true,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "alpha-7-iv",
+        "eos-r6-mark-ii",
+        "x100vi"
+      ],
+      "tags": [
+        "new-arrival"
+      ]
+    },
+    {
+      "id": "nest-hub-max",
+      "slug": "nest-hub-max",
+      "sku": "NV-HOM-001",
+      "name": "Nest Hub Max",
+      "brand": "Google",
+      "category": "smart-home",
+      "price": 109000,
+      "compareAt": 109000,
+      "description": "A thoughtfully selected smart home devices choice from Google. 10-inch smart display · built-in camera · Google Assistant. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "10-inch smart display · built-in camera · Google Assistant",
+        "Brand": "Google",
+        "Category": "Smart Home Devices",
+        "Availability": "In stock"
+      },
+      "stock": 9,
+      "variants": [
+        "Chalk"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": true,
+      "bestseller": false,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "echo-show-10",
+        "hue-white-and-color-starter-kit",
+        "deco-be85-wi-fi-7-mesh"
+      ],
+      "tags": [
+        "editor-pick"
+      ]
+    },
+    {
+      "id": "echo-show-10",
+      "slug": "echo-show-10",
+      "sku": "NV-HOM-002",
+      "name": "Echo Show 10",
+      "brand": "Amazon",
+      "category": "smart-home",
+      "price": 124000,
+      "compareAt": 124000,
+      "description": "A thoughtfully selected smart home devices choice from Amazon. 10.1-inch HD display · motion-tracking screen · Alexa built in. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "10.1-inch HD display · motion-tracking screen · Alexa built in",
+        "Brand": "Amazon",
+        "Category": "Smart Home Devices",
+        "Availability": "In stock"
+      },
+      "stock": 6,
+      "variants": [
+        "Charcoal"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": false,
+      "bestseller": false,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "nest-hub-max",
+        "hue-white-and-color-starter-kit",
+        "deco-be85-wi-fi-7-mesh"
+      ],
+      "tags": []
+    },
+    {
+      "id": "hue-white-and-color-starter-kit",
+      "slug": "hue-white-and-color-starter-kit",
+      "sku": "NV-HOM-003",
+      "name": "Hue White & Color Starter Kit",
+      "brand": "Philips Hue",
+      "category": "smart-home",
+      "price": 169000,
+      "compareAt": 169000,
+      "description": "A thoughtfully selected smart home devices choice from Philips Hue. 16 million colors · app and voice control · works with major smart-home platforms. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "16 million colors · app and voice control · works with major smart-home platforms",
+        "Brand": "Philips Hue",
+        "Category": "Smart Home Devices",
+        "Availability": "In stock"
+      },
+      "stock": 8,
+      "variants": [
+        "3 bulbs + Bridge"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1585771724684-38269d6639fd?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": false,
+      "bestseller": false,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "nest-hub-max",
+        "echo-show-10",
+        "deco-be85-wi-fi-7-mesh"
+      ],
+      "tags": []
+    },
+    {
+      "id": "deco-be85-wi-fi-7-mesh",
+      "slug": "deco-be85-wi-fi-7-mesh",
+      "sku": "NV-HOM-004",
+      "name": "Deco BE85 Wi-Fi 7 Mesh",
+      "brand": "TP-Link",
+      "category": "smart-home",
+      "price": 99900,
+      "compareAt": 99900,
+      "description": "A thoughtfully selected smart home devices choice from TP-Link. Tri-band Wi-Fi 7 · 10Gbps wired ports · whole-home mesh coverage. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "Tri-band Wi-Fi 7 · 10Gbps wired ports · whole-home mesh coverage",
+        "Brand": "TP-Link",
+        "Category": "Smart Home Devices",
+        "Availability": "In stock"
+      },
+      "stock": 7,
+      "variants": [
+        "2-pack"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1545259741-2ea3ebf61fa3?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": false,
+      "bestseller": false,
+      "newArrival": true,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "nest-hub-max",
+        "echo-show-10",
+        "hue-white-and-color-starter-kit"
+      ],
+      "tags": [
+        "new-arrival"
+      ]
+    },
+    {
+      "id": "mx-master-3s",
+      "slug": "mx-master-3s",
+      "sku": "NV-COM-001",
+      "name": "MX Master 3S",
+      "brand": "Logitech",
+      "category": "computer-accessories",
+      "price": 45900,
+      "compareAt": 45900,
+      "description": "A thoughtfully selected computer accessories choice from Logitech. 8K DPI sensor · quiet clicks · MagSpeed electromagnetic scroll. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "8K DPI sensor · quiet clicks · MagSpeed electromagnetic scroll",
+        "Brand": "Logitech",
+        "Category": "Computer Accessories",
+        "Availability": "In stock"
+      },
+      "stock": 16,
+      "variants": [
+        "Graphite"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": true,
+      "bestseller": true,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "stream-deck-mk-2",
+        "ts4-thunderbolt-4-dock",
+        "675-usb-c-docking-station"
+      ],
+      "tags": [
+        "editor-pick"
+      ]
+    },
+    {
+      "id": "stream-deck-mk-2",
+      "slug": "stream-deck-mk-2",
+      "sku": "NV-COM-002",
+      "name": "Stream Deck MK.2",
+      "brand": "Elgato",
+      "category": "computer-accessories",
+      "price": 74900,
+      "compareAt": 74900,
+      "description": "A thoughtfully selected computer accessories choice from Elgato. 15 customizable LCD keys · one-touch workflow control · USB 2.0. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "15 customizable LCD keys · one-touch workflow control · USB 2.0",
+        "Brand": "Elgato",
+        "Category": "Computer Accessories",
+        "Availability": "In stock"
+      },
+      "stock": 8,
+      "variants": [
+        "Black"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": false,
+      "bestseller": false,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "mx-master-3s",
+        "ts4-thunderbolt-4-dock",
+        "675-usb-c-docking-station"
+      ],
+      "tags": []
+    },
+    {
+      "id": "ts4-thunderbolt-4-dock",
+      "slug": "ts4-thunderbolt-4-dock",
+      "sku": "NV-COM-003",
+      "name": "TS4 Thunderbolt 4 Dock",
+      "brand": "CalDigit",
+      "category": "computer-accessories",
+      "price": 189000,
+      "compareAt": 189000,
+      "description": "A thoughtfully selected computer accessories choice from CalDigit. 18 ports · 98W host charging · dual 4K or single 8K display support. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "18 ports · 98W host charging · dual 4K or single 8K display support",
+        "Brand": "CalDigit",
+        "Category": "Computer Accessories",
+        "Availability": "In stock"
+      },
+      "stock": 4,
+      "variants": [
+        "Space Gray"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1587202372634-32705e3bf49c?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": false,
+      "bestseller": false,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "mx-master-3s",
+        "stream-deck-mk-2",
+        "675-usb-c-docking-station"
+      ],
+      "tags": []
+    },
+    {
+      "id": "675-usb-c-docking-station",
+      "slug": "675-usb-c-docking-station",
+      "sku": "NV-COM-004",
+      "name": "675 USB-C Docking Station",
+      "brand": "Anker",
+      "category": "computer-accessories",
+      "price": 159000,
+      "compareAt": 159000,
+      "description": "A thoughtfully selected computer accessories choice from Anker. 12-in-1 connectivity · 100W USB-C charging · integrated monitor stand. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "12-in-1 connectivity · 100W USB-C charging · integrated monitor stand",
+        "Brand": "Anker",
+        "Category": "Computer Accessories",
+        "Availability": "In stock"
+      },
+      "stock": 5,
+      "variants": [
+        "Gray"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": false,
+      "bestseller": false,
+      "newArrival": true,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "mx-master-3s",
+        "stream-deck-mk-2",
+        "ts4-thunderbolt-4-dock"
+      ],
+      "tags": [
+        "new-arrival"
+      ]
+    },
+    {
+      "id": "studio-display",
+      "slug": "studio-display",
+      "sku": "NV-MON-001",
+      "name": "Studio Display",
+      "brand": "Apple",
+      "category": "monitors",
+      "price": 469000,
+      "compareAt": 469000,
+      "description": "A thoughtfully selected monitors choice from Apple. 27-inch 5K Retina · 12MP Center Stage camera · six-speaker Spatial Audio. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "27-inch 5K Retina · 12MP Center Stage camera · six-speaker Spatial Audio",
+        "Brand": "Apple",
+        "Category": "Monitors",
+        "Availability": "In stock"
+      },
+      "stock": 4,
+      "variants": [
+        "Standard glass",
+        "tilt-adjustable"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1527443154391-507e9dc6c5cc?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": true,
+      "bestseller": false,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "ultrasharp-u2723qe",
+        "ultragear-oled-27gs95qe",
+        "odyssey-oled-g9"
+      ],
+      "tags": [
+        "editor-pick"
+      ]
+    },
+    {
+      "id": "ultrasharp-u2723qe",
+      "slug": "ultrasharp-u2723qe",
+      "sku": "NV-MON-002",
+      "name": "UltraSharp U2723QE",
+      "brand": "Dell",
+      "category": "monitors",
+      "price": 189000,
+      "compareAt": 189000,
+      "description": "A thoughtfully selected monitors choice from Dell. 4K IPS Black panel · USB-C hub · 90W power delivery. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "4K IPS Black panel · USB-C hub · 90W power delivery",
+        "Brand": "Dell",
+        "Category": "Monitors",
+        "Availability": "In stock"
+      },
+      "stock": 6,
+      "variants": [
+        "Black",
+        "27-inch"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": true,
+      "bestseller": false,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "studio-display",
+        "ultragear-oled-27gs95qe",
+        "odyssey-oled-g9"
+      ],
+      "tags": []
+    },
+    {
+      "id": "ultragear-oled-27gs95qe",
+      "slug": "ultragear-oled-27gs95qe",
+      "sku": "NV-MON-003",
+      "name": "UltraGear OLED 27GS95QE",
+      "brand": "LG",
+      "category": "monitors",
+      "price": 349000,
+      "compareAt": 349000,
+      "description": "A thoughtfully selected monitors choice from LG. 240Hz OLED panel · 0.03ms response · NVIDIA G-SYNC compatible. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "240Hz OLED panel · 0.03ms response · NVIDIA G-SYNC compatible",
+        "Brand": "LG",
+        "Category": "Monitors",
+        "Availability": "In stock"
+      },
+      "stock": 4,
+      "variants": [
+        "27-inch",
+        "QHD"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1593642634367-d91a135587b5?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": false,
+      "bestseller": false,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "studio-display",
+        "ultrasharp-u2723qe",
+        "odyssey-oled-g9"
+      ],
+      "tags": []
+    },
+    {
+      "id": "odyssey-oled-g9",
+      "slug": "odyssey-oled-g9",
+      "sku": "NV-MON-004",
+      "name": "Odyssey OLED G9",
+      "brand": "Samsung",
+      "category": "monitors",
+      "price": 649000,
+      "compareAt": 649000,
+      "description": "A thoughtfully selected monitors choice from Samsung. 49-inch OLED ultrawide · 240Hz refresh · 1800R curvature. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "49-inch OLED ultrawide · 240Hz refresh · 1800R curvature",
+        "Brand": "Samsung",
+        "Category": "Monitors",
+        "Availability": "In stock"
+      },
+      "stock": 2,
+      "variants": [
+        "49-inch",
+        "G95SC"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1527443224154-c4a3942d3e?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": false,
+      "bestseller": false,
+      "newArrival": true,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "studio-display",
+        "ultrasharp-u2723qe",
+        "ultragear-oled-27gs95qe"
+      ],
+      "tags": [
+        "new-arrival"
+      ]
+    },
+    {
+      "id": "q1-pro",
+      "slug": "q1-pro",
+      "sku": "NV-KEY-001",
+      "name": "Q1 Pro",
+      "brand": "Keychron",
+      "category": "keyboards-mice",
+      "price": 79900,
+      "compareAt": 79900,
+      "description": "A thoughtfully selected keyboards and mice choice from Keychron. 75% QMK/VIA layout · hot-swappable · Bluetooth 5.1 and USB-C. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "75% QMK/VIA layout · hot-swappable · Bluetooth 5.1 and USB-C",
+        "Brand": "Keychron",
+        "Category": "Keyboards and Mice",
+        "Availability": "In stock"
+      },
+      "stock": 7,
+      "variants": [
+        "Carbon Black",
+        "Brown switches"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1595225476474-87563907a212?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": true,
+      "bestseller": true,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "mx-keys-s",
+        "blackwidow-v4-pro",
+        "g502-x-plus"
+      ],
+      "tags": [
+        "editor-pick"
+      ]
+    },
+    {
+      "id": "mx-keys-s",
+      "slug": "mx-keys-s",
+      "sku": "NV-KEY-002",
+      "name": "MX Keys S",
+      "brand": "Logitech",
+      "category": "keyboards-mice",
+      "price": 59900,
+      "compareAt": 59900,
+      "description": "A thoughtfully selected keyboards and mice choice from Logitech. Low-profile wireless keyboard · smart illumination · multi-device pairing. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "Low-profile wireless keyboard · smart illumination · multi-device pairing",
+        "Brand": "Logitech",
+        "Category": "Keyboards and Mice",
+        "Availability": "In stock"
+      },
+      "stock": 12,
+      "variants": [
+        "Graphite"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": false,
+      "bestseller": false,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "q1-pro",
+        "blackwidow-v4-pro",
+        "g502-x-plus"
+      ],
+      "tags": []
+    },
+    {
+      "id": "blackwidow-v4-pro",
+      "slug": "blackwidow-v4-pro",
+      "sku": "NV-KEY-003",
+      "name": "BlackWidow V4 Pro",
+      "brand": "Razer",
+      "category": "keyboards-mice",
+      "price": 109000,
+      "compareAt": 109000,
+      "description": "A thoughtfully selected keyboards and mice choice from Razer. Full-size mechanical keyboard · Razer Chroma RGB · command dial. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "Full-size mechanical keyboard · Razer Chroma RGB · command dial",
+        "Brand": "Razer",
+        "Category": "Keyboards and Mice",
+        "Availability": "In stock"
+      },
+      "stock": 5,
+      "variants": [
+        "Green switches"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1626958390943-779b7d508eab?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": false,
+      "bestseller": false,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "q1-pro",
+        "mx-keys-s",
+        "g502-x-plus"
+      ],
+      "tags": []
+    },
+    {
+      "id": "g502-x-plus",
+      "slug": "g502-x-plus",
+      "sku": "NV-KEY-004",
+      "name": "G502 X Plus",
+      "brand": "Logitech G",
+      "category": "keyboards-mice",
+      "price": 52900,
+      "compareAt": 52900,
+      "description": "A thoughtfully selected keyboards and mice choice from Logitech G. LIGHTFORCE hybrid switches · HERO 25K sensor · LIGHTSYNC RGB. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "LIGHTFORCE hybrid switches · HERO 25K sensor · LIGHTSYNC RGB",
+        "Brand": "Logitech G",
+        "Category": "Keyboards and Mice",
+        "Availability": "In stock"
+      },
+      "stock": 11,
+      "variants": [
+        "White"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": false,
+      "bestseller": false,
+      "newArrival": true,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "q1-pro",
+        "mx-keys-s",
+        "blackwidow-v4-pro"
+      ],
+      "tags": [
+        "new-arrival"
+      ]
+    },
+    {
+      "id": "prime-power-bank-27-650mah",
+      "slug": "prime-power-bank-27-650mah",
+      "sku": "NV-POW-001",
+      "name": "Prime Power Bank 27,650mAh",
+      "brand": "Anker",
+      "category": "power-banks-chargers",
+      "price": 79900,
+      "compareAt": 79900,
+      "description": "A thoughtfully selected power banks and chargers choice from Anker. 27,650mAh capacity · 250W total output · smart display. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "27,650mAh capacity · 250W total output · smart display",
+        "Brand": "Anker",
+        "Category": "Power Banks and Chargers",
+        "Availability": "In stock"
+      },
+      "stock": 13,
+      "variants": [
+        "Black",
+        "250W"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": true,
+      "bestseller": false,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "boostcharge-pro-3-in-1",
+        "35w-dual-usb-c-port-compact-power-adapter",
+        "nexode-300w-gan-charger"
+      ],
+      "tags": [
+        "editor-pick"
+      ]
+    },
+    {
+      "id": "boostcharge-pro-3-in-1",
+      "slug": "boostcharge-pro-3-in-1",
+      "sku": "NV-POW-002",
+      "name": "BoostCharge Pro 3-in-1",
+      "brand": "Belkin",
+      "category": "power-banks-chargers",
+      "price": 59900,
+      "compareAt": 59900,
+      "description": "A thoughtfully selected power banks and chargers choice from Belkin. MagSafe-compatible charging · iPhone, Apple Watch and AirPods. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "MagSafe-compatible charging · iPhone, Apple Watch and AirPods",
+        "Brand": "Belkin",
+        "Category": "Power Banks and Chargers",
+        "Availability": "In stock"
+      },
+      "stock": 9,
+      "variants": [
+        "White"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": false,
+      "bestseller": false,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "prime-power-bank-27-650mah",
+        "35w-dual-usb-c-port-compact-power-adapter",
+        "nexode-300w-gan-charger"
+      ],
+      "tags": []
+    },
+    {
+      "id": "35w-dual-usb-c-port-compact-power-adapter",
+      "slug": "35w-dual-usb-c-port-compact-power-adapter",
+      "sku": "NV-POW-003",
+      "name": "35W Dual USB-C Port Compact Power Adapter",
+      "brand": "Apple",
+      "category": "power-banks-chargers",
+      "price": 39900,
+      "compareAt": 39900,
+      "description": "A thoughtfully selected power banks and chargers choice from Apple. Two USB-C ports · 35W total output · foldable plug design. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "Two USB-C ports · 35W total output · foldable plug design",
+        "Brand": "Apple",
+        "Category": "Power Banks and Chargers",
+        "Availability": "In stock"
+      },
+      "stock": 21,
+      "variants": [
+        "White"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": false,
+      "bestseller": false,
+      "newArrival": false,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "prime-power-bank-27-650mah",
+        "boostcharge-pro-3-in-1",
+        "nexode-300w-gan-charger"
+      ],
+      "tags": []
+    },
+    {
+      "id": "nexode-300w-gan-charger",
+      "slug": "nexode-300w-gan-charger",
+      "sku": "NV-POW-004",
+      "name": "Nexode 300W GaN Charger",
+      "brand": "UGREEN",
+      "category": "power-banks-chargers",
+      "price": 79900,
+      "compareAt": 79900,
+      "description": "A thoughtfully selected power banks and chargers choice from UGREEN. 300W GaN output · 5 ports · intelligent power distribution. Selected by NEXVORO for considered design, reliable performance and everyday usefulness.",
+      "specs": {
+        "Highlights": "300W GaN output · 5 ports · intelligent power distribution",
+        "Brand": "UGREEN",
+        "Category": "Power Banks and Chargers",
+        "Availability": "In stock"
+      },
+      "stock": 8,
+      "variants": [
+        "Gray"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1591290619762-c588ba0b52db?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "featured": false,
+      "bestseller": false,
+      "newArrival": true,
+      "rating": null,
+      "reviewCount": 0,
+      "relatedIds": [
+        "prime-power-bank-27-650mah",
+        "boostcharge-pro-3-in-1",
+        "35w-dual-usb-c-port-compact-power-adapter"
+      ],
+      "tags": [
+        "new-arrival"
+      ]
+    }
+  ]
+}

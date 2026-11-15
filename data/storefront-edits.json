@@ -1,0 +1,123 @@
+{
+  "exploreByInterest": {
+    "name": "Explore by Interest",
+    "eyebrow": "FIND YOUR KIND OF FUTURE",
+    "description": "Start with the things you enjoy. Explore products by category, without popularity claims or made-up recommendations."
+  },
+  "collections": [
+    {
+      "slug": "future-tech-picks",
+      "name": "Future Tech Picks",
+      "tag": "collection:future-tech-picks",
+      "description": "Forward-looking devices and thoughtfully selected ideas.",
+      "image": "/images/collections/future-tech-picks.jpg"
+    },
+    {
+      "slug": "gadgets-you-didnt-know-existed",
+      "name": "Gadgets You Didn't Know Existed",
+      "tag": "collection:gadgets-you-didnt-know-existed",
+      "description": "Unexpected tools and useful discoveries worth a closer look.",
+      "image": "/images/collections/gadgets-you-didnt-know-existed.jpg"
+    },
+    {
+      "slug": "ai-powered-innovations",
+      "name": "AI-Powered Innovations",
+      "tag": "collection:ai-powered-innovations",
+      "description": "AI-enabled products selected for a clear, practical use.",
+      "image": "/images/collections/ai-powered-innovations.jpg"
+    },
+    {
+      "slug": "smart-life-collection",
+      "name": "Smart Life Collection",
+      "tag": "collection:smart-life-collection",
+      "description": "Connected devices for daily routines at home and on the move.",
+      "image": "/images/collections/smart-life-collection.jpg"
+    },
+    {
+      "slug": "desk-setup-essentials",
+      "name": "Desk Setup Essentials",
+      "tag": "collection:desk-setup-essentials",
+      "description": "Tools for focused work, creative sessions, and a more considered desk.",
+      "image": "/images/collections/desk-setup-essentials.jpg"
+    },
+    {
+      "slug": "hidden-tech-gems",
+      "name": "Hidden Tech Gems",
+      "tag": "collection:hidden-tech-gems",
+      "description": "Less obvious technology picked for its useful details.",
+      "image": "/images/collections/hidden-tech-gems.jpg"
+    },
+    {
+      "slug": "next-gen-gaming",
+      "name": "Next-Gen Gaming",
+      "tag": "collection:next-gen-gaming",
+      "description": "Gaming hardware and accessories for modern play.",
+      "image": "/images/collections/next-gen-gaming.jpg"
+    },
+    {
+      "slug": "portable-tech",
+      "name": "Portable Tech",
+      "tag": "collection:portable-tech",
+      "description": "Compact technology designed to travel with you.",
+      "image": "/images/collections/portable-tech.jpg"
+    },
+    {
+      "slug": "viral-tech-finds",
+      "name": "Viral Tech Finds",
+      "tag": "collection:viral-tech-finds",
+      "description": "Products gaining attention, added only when the trend is verified.",
+      "image": "/images/collections/viral-tech-finds.jpg"
+    },
+    {
+      "slug": "premium-gadget-collection",
+      "name": "Premium Gadget Collection",
+      "tag": "collection:premium-gadget-collection",
+      "description": "Higher-end devices and carefully considered accessories.",
+      "image": "/images/collections/premium-gadget-collection.jpg"
+    }
+  ],
+  "discovery": [
+    {
+      "slug": "discover-something-new",
+      "name": "Discover Something New",
+      "eyebrow": "A GOOD SURPRISE",
+      "tag": "discovery:discover-something-new",
+      "description": "A hand-picked shelf of unexpected products, with verified details."
+    },
+    {
+      "slug": "trending-this-week",
+      "name": "Trending This Week",
+      "eyebrow": "CURRENT CONVERSATION",
+      "tag": "discovery:trending-this-week",
+      "description": "An editor-curated selection, refreshed when weekly trend evidence is reviewed."
+    },
+    {
+      "slug": "new-technology-arrivals",
+      "name": "New Technology Arrivals",
+      "eyebrow": "JUST ADDED, FACT-CHECKED",
+      "tag": "discovery:new-technology-arrivals",
+      "description": "Recently reviewed additions, shown only after product details are checked."
+    },
+    {
+      "slug": "staff-picks",
+      "name": "Staff Picks",
+      "eyebrow": "THE NEXVORO EDITORS",
+      "tag": "discovery:staff-picks",
+      "description": "Products selected by the NEXVORO team. Selection is not a customer rating."
+    },
+    {
+      "slug": "compare-interesting-gadgets",
+      "name": "Compare Interesting Gadgets",
+      "eyebrow": "SIDE BY SIDE",
+      "tag": "discovery:compare-interesting-gadgets",
+      "description": "A short list of distinct products to compare on their published specifications."
+    },
+    {
+      "slug": "featured-gadget-of-the-day",
+      "name": "Featured Gadget of the Day",
+      "eyebrow": "TODAY'S FEATURE",
+      "tag": "discovery:featured-gadget-of-the-day",
+      "description": "The current daily feature, selected and updated by a store editor."
+    }
+  ]
+}
