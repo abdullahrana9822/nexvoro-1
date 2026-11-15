@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import {
   ArrowRight,
   AudioLines,
@@ -54,10 +54,79 @@ export function BrandMark({ compact = false }: { compact?: boolean }) {
 }
 
 export function SiteHeader({ theme }: { theme: ThemeId }) {
-  const { cart, wishlist, compare, categories, settings, commerceConfigured, formatPrice } = useStore();
+  const { cart, wishlist, compare, categories, settings, databaseStatus, commerceConfigured, formatPrice } = useStore();
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const firstMenuLinkRef = useRef<HTMLAnchorElement>(null);
+  const searchReturnFocusRef = useRef<HTMLElement | null>(null);
   const itemCount = cart.reduce((sum, line) => sum + line.quantity, 0);
+  const storeNeedsSetup = databaseStatus === "connected" && !commerceConfigured;
+  const announcementCopy = databaseStatus === "checking"
+    ? "Checking live store status"
+    : databaseStatus === "disconnected"
+      ? "Preview only · orders and forms are not live"
+      : storeNeedsSetup
+        ? "Checkout paused · store setup needed"
+        : settings.freeShippingThreshold > 0
+          ? `Complimentary delivery over ${formatPrice(settings.freeShippingThreshold)}`
+          : "Complimentary delivery on every order";
+  const announcementLink = databaseStatus === "disconnected"
+    ? { href: "/faq", label: "Store notes" }
+    : storeNeedsSetup
+      ? { href: "/admin/products", label: "Catalog setup" }
+      : { href: "/shipping-returns", label: "Shipping & returns" };
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const closeOnEscapeOrTab = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setMenuOpen(false);
+        return;
+      }
+      if (event.key !== "Tab") return;
+      const panel = document.getElementById("mobile-navigation");
+      const focusable = panel?.querySelectorAll<HTMLElement>('a[href], button:not([disabled]), select:not([disabled])');
+      if (!focusable?.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    const closeOnDesktop = () => {
+      if (window.matchMedia("(min-width: 1280px)").matches) setMenuOpen(false);
+    };
+    window.addEventListener("keydown", closeOnEscapeOrTab);
+    window.addEventListener("resize", closeOnDesktop);
+    let focusFrame = 0;
+    const focusFirstMenuItem = () => {
+      const panel = document.getElementById("mobile-navigation");
+      if (!panel || panel.getAttribute("aria-hidden") === "true") return;
+      if (getComputedStyle(panel).visibility !== "visible") {
+        focusFrame = window.requestAnimationFrame(focusFirstMenuItem);
+        return;
+      }
+      const firstMenuItem = firstMenuLinkRef.current ?? panel.querySelector<HTMLElement>("a[href]");
+      firstMenuItem?.focus({ preventScroll: true });
+    };
+    focusFrame = window.requestAnimationFrame(focusFirstMenuItem);
+    const menuButton = menuButtonRef.current;
+    return () => {
+      window.cancelAnimationFrame(focusFrame);
+      window.removeEventListener("keydown", closeOnEscapeOrTab);
+      window.removeEventListener("resize", closeOnDesktop);
+      document.body.style.overflow = previousOverflow;
+      menuButton?.focus({ preventScroll: true });
+    };
+  }, [menuOpen]);
+
   const nav = [
     { label: "Shop", href: "/shop" },
     { label: "New arrivals", href: "/new-arrivals" },
@@ -69,12 +138,12 @@ export function SiteHeader({ theme }: { theme: ThemeId }) {
     <>
       <div className="announcement-bar">
         <span>THE NEXVORO EDIT</span>
-        <span className="announcement-copy">{commerceConfigured ? settings.freeShippingThreshold > 0 ? `Complimentary delivery over ${formatPrice(settings.freeShippingThreshold)}` : "Complimentary delivery on every order" : "Delivery terms are being prepared"}</span>
-        <Link href="/shipping-returns">Shipping &amp; returns <ArrowRight size={12} /></Link>
+        <span className="announcement-copy" role="status" aria-live="polite">{announcementCopy}</span>
+        <Link href={announcementLink.href}>{announcementLink.label} <ArrowRight size={12} /></Link>
       </div>
       <header className={`site-header header-${theme}`}>
         <div className="header-inner">
-          <button className="icon-button mobile-menu-button" aria-label={menuOpen ? "Close menu" : "Open menu"} onClick={() => setMenuOpen((open) => !open)}>
+          <button ref={menuButtonRef} className="icon-button mobile-menu-button" type="button" aria-label={menuOpen ? "Close menu" : "Open menu"} aria-expanded={menuOpen} aria-controls="mobile-navigation" onClick={() => setMenuOpen((open) => !open)}>
             {menuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
           <BrandMark />
@@ -102,7 +171,7 @@ export function SiteHeader({ theme }: { theme: ThemeId }) {
           </nav>
           <div className="header-actions">
             <CurrencySelector variant="header" />
-            <button className="icon-button" aria-label="Search products" onClick={() => setSearchOpen(true)}><Search size={19} /></button>
+            <button className="icon-button" aria-label="Search products" onClick={(event) => { searchReturnFocusRef.current = event.currentTarget; setMenuOpen(false); setSearchOpen(true); }}><Search size={19} /></button>
             <Link className="icon-button action-account" href="/account" aria-label="Your account"><UserRound size={19} /></Link>
             <Link className="icon-button action-wishlist" href="/wishlist" aria-label="Wishlist"><Heart size={19} />{wishlist.length > 0 && <sup>{wishlist.length}</sup>}</Link>
             <Link className="icon-button action-compare" href="/compare" aria-label="Compare products"><GitCompare size={19} />{compare.length > 0 && <sup>{compare.length}</sup>}</Link>
@@ -111,9 +180,9 @@ export function SiteHeader({ theme }: { theme: ThemeId }) {
             </Link>
           </div>
         </div>
-        <div className={`mobile-nav-panel ${menuOpen ? "mobile-nav-panel-open" : ""}`}>
+        <div id="mobile-navigation" className={`mobile-nav-panel ${menuOpen ? "mobile-nav-panel-open" : ""}`} role="region" aria-label="Mobile navigation" aria-hidden={!menuOpen} inert={!menuOpen}>
           <div className="mobile-nav-primary">
-            <Link href="/shop" onClick={() => setMenuOpen(false)}>Shop all <ArrowRight size={15} /></Link>
+            <Link ref={firstMenuLinkRef} href="/shop" onClick={() => setMenuOpen(false)}>Shop all <ArrowRight size={15} /></Link>
             <Link href="/new-arrivals" onClick={() => setMenuOpen(false)}>New arrivals <ArrowRight size={15} /></Link>
             <Link href="/best-sellers" onClick={() => setMenuOpen(false)}>Best sellers <ArrowRight size={15} /></Link>
             <Link href="/offers" onClick={() => setMenuOpen(false)}>Special offers <ArrowRight size={15} /></Link>
@@ -125,13 +194,18 @@ export function SiteHeader({ theme }: { theme: ThemeId }) {
           <CurrencySelector variant="mobile" />
         </div>
       </header>
-      {searchOpen && <SearchOverlay onClose={() => setSearchOpen(false)} />}
+      {menuOpen && <button className="mobile-nav-backdrop" type="button" aria-label="Close navigation menu" onClick={() => setMenuOpen(false)} />}
+      {searchOpen && <SearchOverlay onClose={() => setSearchOpen(false)} returnFocusTarget={searchReturnFocusRef.current} />}
     </>
   );
 }
 
-function SearchOverlay({ onClose }: { onClose: () => void }) {
+function SearchOverlay({ onClose, returnFocusTarget }: { onClose: () => void; returnFocusTarget: HTMLElement | null }) {
   const { products, categories, formatPrice } = useStore();
+  const onCloseRef = useRef(onClose);
+  const searchInputRef = useRef<HTMLInputElement>(null);
+  const searchPanelRef = useRef<HTMLElement>(null);
+  const returnFocusRef = useRef<HTMLElement | null>(returnFocusTarget);
   const [query, setQuery] = useState("");
   const trimmed = query.trim().toLowerCase();
   const results = trimmed.length > 0
@@ -141,11 +215,49 @@ function SearchOverlay({ onClose }: { onClose: () => void }) {
     ? categories.filter((item) => item.name.toLowerCase().includes(trimmed)).slice(0, 3)
     : [];
 
+  useEffect(() => {
+    onCloseRef.current = onClose;
+  }, [onClose]);
+
+  useEffect(() => {
+    const previousOverflow = document.body.style.overflow;
+    const returnFocusTarget = returnFocusRef.current;
+    document.body.style.overflow = "hidden";
+    const closeOnEscapeOrTab = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        onCloseRef.current();
+        return;
+      }
+      if (event.key !== "Tab") return;
+      const focusable = searchPanelRef.current?.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled])',
+      );
+      if (!focusable?.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    window.addEventListener("keydown", closeOnEscapeOrTab);
+    const focusFrame = window.requestAnimationFrame(() => searchInputRef.current?.focus({ preventScroll: true }));
+    return () => {
+      window.cancelAnimationFrame(focusFrame);
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", closeOnEscapeOrTab);
+      returnFocusTarget?.focus({ preventScroll: true });
+    };
+  }, []);
+
   return (
     <div className="search-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) onClose(); }}>
-      <section className="search-panel" role="dialog" aria-modal="true" aria-label="Search the store">
+      <section ref={searchPanelRef} className="search-panel" role="dialog" aria-modal="true" aria-label="Search the store">
         <div className="search-panel-top">
-          <div className="search-input-wrap"><Search size={19} /><input autoFocus placeholder="Search the considered edit…" value={query} onChange={(event) => setQuery(event.target.value)} /><kbd>ESC</kbd></div>
+          <div className="search-input-wrap"><Search size={19} /><input ref={searchInputRef} autoFocus placeholder="Search the considered edit…" value={query} onChange={(event) => setQuery(event.target.value)} /><kbd>ESC</kbd></div>
           <button className="icon-button" aria-label="Close search" onClick={onClose}><X size={20} /></button>
         </div>
         <div className="search-panel-content">
@@ -196,7 +308,7 @@ export function SiteFooter({ theme }: { theme: ThemeId }) {
         <div><span className="eyebrow">THE NEXVORO LETTER</span><h2>A little more<br /><em>signal.</em></h2><p>New finds, considered ideas and the occasional good offer. No noise.</p></div>
         <form onSubmit={subscribe} className="newsletter-form">
           <label htmlFor="newsletter-email">Your email address</label>
-          <div className="newsletter-input-row"><input id="newsletter-email" type="email" required value={email} onChange={(event) => setEmail(event.target.value)} placeholder="you@example.com" /><button type="submit" aria-label="Subscribe to newsletter">{subscribed ? "You’re in" : "Join the list"}<ArrowRight size={15} /></button></div>
+          <div className="newsletter-input-row"><input id="newsletter-email" type="email" required value={email} onChange={(event) => setEmail(event.target.value)} placeholder="you@example.com" /><button type="submit">{subscribed ? "You’re in" : "Join the list"}<ArrowRight size={15} /></button></div>
           <small>By subscribing, you agree to receive NEXVORO updates. Unsubscribe whenever you like.</small>
         </form>
       </div>

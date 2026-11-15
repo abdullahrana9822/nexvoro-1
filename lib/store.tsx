@@ -10,7 +10,6 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { SEED_CATEGORIES, SEED_PRODUCTS } from "./catalog";
 import { DEFAULT_THEME, isThemeId } from "./themes";
 import type {
   Banner,
@@ -115,8 +114,8 @@ async function responseJson(response: Response) {
 }
 
 export function StoreProvider({ children }: { children: ReactNode }) {
-  const [products, setProducts] = useState<Product[]>(SEED_PRODUCTS);
-  const [categories, setCategories] = useState<Category[]>(SEED_CATEGORIES);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [categories, setCategories] = useState<Category[]>([]);
   const [cart, setCart] = useState<CartLine[]>([]);
   const [wishlist, setWishlist] = useState<string[]>([]);
   const [compare, setCompare] = useState<string[]>([]);
@@ -163,8 +162,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     hasSavedDisplayCurrency.current = isCurrencyCode(savedDisplayCurrency);
     let hadSavedTheme = false;
     try { hadSavedTheme = Boolean(window.localStorage.getItem(keys.theme)); } catch { /* Storage may be unavailable in private browsing. */ }
-    setProducts(readStored(keys.products, SEED_PRODUCTS));
-    setCategories(readStored(keys.categories, SEED_CATEGORIES));
+    setProducts(process.env.NODE_ENV === "production" ? [] : readStored(keys.products, []));
+    setCategories(process.env.NODE_ENV === "production" ? [] : readStored(keys.categories, []));
     setCart(readStored(keys.cart, []));
     setWishlist(readStored(keys.wishlist, []));
     setCompare(readStored(keys.compare, []));
@@ -477,7 +476,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
 
   const checkout = useCallback(async (order: Order) => {
     if (databaseStatus === "checking") return { ok: false, persisted: false, message: "The store is still connecting. Please try again in a moment." };
-    if (databaseStatus === "connected" && !commerceConfigured) return { ok: false, persisted: false, message: "Checkout is unavailable until the store has configured its delivery terms." };
+    if (databaseStatus === "connected" && !commerceConfigured) return { ok: false, persisted: false, message: "Checkout is paused until verified delivery terms and at least one sale-ready product are available." };
     if (databaseStatus !== "connected" && process.env.NODE_ENV === "production") {
       return { ok: false, persisted: false, message: "This store is not accepting orders because its live database is unavailable. Please try again later." };
     }

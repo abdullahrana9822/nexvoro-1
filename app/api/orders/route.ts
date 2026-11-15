@@ -4,6 +4,7 @@ import { z } from "zod";
 import { getDatabase, mapDatabaseOrder } from "@/lib/server/db";
 import { getCheckoutFxQuote, loadStoreFxSettings } from "@/lib/server/fx-rates";
 import { CURRENCY_CODES } from "@/lib/currency.mjs";
+import { isDemoOnlyProduct } from "@/lib/demo-products.mjs";
 import { makeId } from "@/lib/utils";
 import { readJsonBody } from "@/lib/server/http";
 
@@ -68,6 +69,14 @@ export async function POST(request: NextRequest) {
     return all;
   }, []);
   if (normalizedItems.some((item) => item.quantity > 20)) return NextResponse.json({ error: "Maximum quantity for an item is 20." }, { status: 400 });
+
+  const productsResult = await db.from("nexvoro_products")
+    .select("id,sku,name,tags")
+    .in("id", normalizedItems.map((item) => item.productId));
+  if (productsResult.error) return NextResponse.json({ error: "Product availability could not be verified." }, { status: 503 });
+  if ((productsResult.data || []).some((product) => isDemoOnlyProduct(product as Record<string, unknown>))) {
+    return NextResponse.json({ error: "Demo-only products are not available for purchase." }, { status: 400 });
+  }
 
   const { data, error } = await db.rpc("nexvoro_place_order", {
     p_payload: {

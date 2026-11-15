@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import catalog from "@/data/catalog.json";
 import { isCurrencyCode } from "@/lib/currency.mjs";
+import { isDemoOnlyProduct } from "@/lib/demo-products.mjs";
 import { getDatabase, mapDatabaseProduct } from "@/lib/server/db";
 
 export const runtime = "nodejs";
@@ -62,11 +63,15 @@ export async function GET() {
     const settings = settingsResult.data?.payload && typeof settingsResult.data.payload === "object"
       ? settingsResult.data.payload
       : undefined;
-    const commerceConfigured = hasCommerceSettings(settings);
+    const storefrontProducts = (productsResult.data || []).filter((row) => !isDemoOnlyProduct(row as Record<string, unknown>));
+    const storefrontCategorySlugs = new Set(storefrontProducts.map((row) => row.category_slug));
+    const storefrontCategories = (categoriesResult.data || []).filter((row) => storefrontCategorySlugs.has(row.slug));
+    const hasInStockProduct = storefrontProducts.some((row) => Number(row.stock) > 0);
+    const commerceConfigured = hasCommerceSettings(settings) && hasInStockProduct;
 
     return NextResponse.json({
-      products: (productsResult.data || []).map((row) => mapDatabaseProduct(row as Record<string, unknown>)),
-      categories: (categoriesResult.data || []).map((row) => ({
+      products: storefrontProducts.map((row) => mapDatabaseProduct(row as Record<string, unknown>)),
+      categories: storefrontCategories.map((row) => ({
         slug: row.slug,
         name: row.name,
         eyebrow: row.eyebrow,

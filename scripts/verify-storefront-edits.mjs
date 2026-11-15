@@ -3,6 +3,13 @@ import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import edits from "../data/storefront-edits.json" with { type: "json" };
 
+const storeProvider = await readFile(resolve("lib/store.tsx"), "utf8");
+assert.doesNotMatch(
+  storeProvider,
+  /from ["']\.\/catalog["']/,
+  "The browser store must load catalog data from the store API, not bundle the full sample catalog into every page.",
+);
+
 const expectedCollections = [
   "Future Tech Picks",
   "Gadgets You Didn't Know Existed",

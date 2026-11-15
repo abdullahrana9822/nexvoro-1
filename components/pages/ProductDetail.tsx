@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState, type FormEvent } from "react";
+import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import {
   ArrowRight,
   Check,
@@ -30,10 +30,53 @@ export function ProductQuickView({ product, onClose }: { product: Product; onClo
   const [variant, setVariant] = useState(product.variants[0] || "");
   const [quantity, setQuantity] = useState(1);
   const percent = salePercent(product);
+  const onCloseRef = useRef(onClose);
+  const modalRef = useRef<HTMLElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const returnFocusRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    onCloseRef.current = onClose;
+  }, [onClose]);
+
+  useEffect(() => {
+    const previousOverflow = document.body.style.overflow;
+    returnFocusRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    document.body.style.overflow = "hidden";
+    const closeOnEscapeOrTab = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        onCloseRef.current();
+        return;
+      }
+      if (event.key !== "Tab") return;
+      const focusable = modalRef.current?.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled])',
+      );
+      if (!focusable?.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    window.addEventListener("keydown", closeOnEscapeOrTab);
+    const focusFrame = window.requestAnimationFrame(() => closeButtonRef.current?.focus({ preventScroll: true }));
+    return () => {
+      window.cancelAnimationFrame(focusFrame);
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", closeOnEscapeOrTab);
+      returnFocusRef.current?.focus({ preventScroll: true });
+    };
+  }, []);
+
   return (
     <div className="modal-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) onClose(); }}>
-      <section className="quick-view-modal" role="dialog" aria-modal="true" aria-label={`Quick view: ${product.name}`}>
-        <button className="modal-close" onClick={onClose} aria-label="Close quick view"><X size={20} /></button>
+      <section ref={modalRef} className="quick-view-modal" role="dialog" aria-modal="true" aria-label={`Quick view: ${product.name}`}>
+        <button ref={closeButtonRef} className="modal-close" type="button" onClick={onClose} aria-label="Close quick view"><X size={20} /></button>
         <div className="quick-view-image"><ProductMedia product={product} /></div>
         <div className="quick-view-content"><span className="eyebrow">{product.brand} / QUICK LOOK</span><h2>{product.name}</h2><p>{product.description}</p><div className="quick-view-price"><strong>{formatPrice(product.price)}</strong>{product.compareAt > product.price && <del>{formatPrice(product.compareAt)}</del>}{percent > 0 && <span>{percent}% OFF</span>}</div>
           {product.variants.length > 0 && <label className="variant-select-label">Choose a finish or configuration<select value={variant} onChange={(event) => setVariant(event.target.value)}>{product.variants.map((item) => <option key={item}>{item}</option>)}</select></label>}

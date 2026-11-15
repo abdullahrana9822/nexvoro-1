@@ -37,7 +37,7 @@ export default function Storefront() {
   const pathname = usePathname() || "/";
   const path = pathname.replace(/\/+$/, "") || "/";
   const segments = path.split("/").filter(Boolean);
-  const { theme, databaseStatus, commerceConfigured } = useStore();
+  const { theme, databaseStatus } = useStore();
   const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
   const onQuickView = (product: Product) => setQuickViewProduct(product);
   const isAdmin = segments[0] === "admin";
@@ -101,8 +101,6 @@ export default function Storefront() {
 
   if (isAdmin) return <>{page}<ToastStack /></>;
   return <div className={`store-frame theme-${theme}`}>
-    {databaseStatus === "disconnected" && <div className="store-preview-notice" role="status"><span className="store-preview-badge">PREVIEW ENVIRONMENT</span><p>This browser is not connected to the live store database. Catalog availability and promotions may be sample data; orders and form submissions are not saved to the live store.</p><Link href="/faq">Read the store notes <span aria-hidden="true">↗</span></Link></div>}
-    {databaseStatus === "connected" && !commerceConfigured && <div className="store-preview-notice" role="status"><span className="store-preview-badge">STORE SETUP INCOMPLETE</span><p>The live database is connected, but checkout is disabled until verified store identity and delivery terms are saved.</p><Link href="/admin/settings">Configure store settings <span aria-hidden="true">↗</span></Link></div>}
     <SiteHeader theme={theme} />
     <main id="main-content" key={path} className="page-transition">{page}</main>
     <SiteFooter theme={theme} />

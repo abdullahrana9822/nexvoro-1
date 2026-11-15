@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { adminConfigured } from "@/lib/server/admin-auth";
 import { isCurrencyCode } from "@/lib/currency.mjs";
+import { isDemoOnlyProduct } from "@/lib/demo-products.mjs";
 import { databaseConfigured, getDatabase } from "@/lib/server/db";
 
 export const runtime = "nodejs";
@@ -35,11 +36,15 @@ export async function GET() {
       });
     }
 
-    const [{ data: settings, error: settingsError }, { error: adminTableError }] = await Promise.all([
+    const [{ data: settings, error: settingsError }, { error: adminTableError }, { data: products, error: productsError }] = await Promise.all([
       db.from("nexvoro_store_settings").select("payload").eq("id", "store").maybeSingle(),
       db.from("nexvoro_admin_users").select("id").limit(1),
+      db.from("nexvoro_products").select("id,sku,name,tags,stock").eq("is_active", true).limit(1000),
     ]);
-    const commerceConfigured = !settingsError && hasCommerceSettings(settings?.payload);
+    const hasSaleableProduct = !productsError && (products || []).some((product) =>
+      Number(product.stock) > 0 && !isDemoOnlyProduct(product as Record<string, unknown>),
+    );
+    const commerceConfigured = !settingsError && hasCommerceSettings(settings?.payload) && hasSaleableProduct;
     return NextResponse.json({
       ok: true,
       database: true,

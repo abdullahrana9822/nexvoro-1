@@ -20,6 +20,22 @@ import {
 import type { Product } from "@/lib/types";
 
 const icons = [Smartphone, Laptop, Tablet, Headphones, AudioLines, Watch, Gamepad2, Gamepad2, Speaker, Camera, House, Radio, Monitor, Keyboard, BatteryCharging];
+
+function responsiveImageSet(image?: string) {
+  if (!image) return undefined;
+  try {
+    const source = new URL(image);
+    if (source.hostname !== "images.unsplash.com") return undefined;
+    return [320, 480, 640, 960, 1200, 1600].map((width) => {
+      const candidate = new URL(source);
+      candidate.searchParams.set("w", String(width));
+      candidate.searchParams.set("q", width <= 640 ? "72" : "80");
+      return `${candidate.toString()} ${width}w`;
+    }).join(", ");
+  } catch {
+    return undefined;
+  }
+}
 const categoryIndex: Record<string, number> = {
   smartphones: 0, laptops: 1, tablets: 2, headphones: 3, earbuds: 4, "smart-watches": 5,
   "gaming-accessories": 6, "gaming-consoles": 7, speakers: 8, cameras: 9, "smart-home": 10,
@@ -30,6 +46,7 @@ export default function ProductMedia({ product, className = "", priority = false
   const [broken, setBroken] = useState(false);
   const Icon = product ? icons[categoryIndex[product.category] ?? 0] || Smartphone : Smartphone;
   const image = product?.images?.[0];
+  const srcSet = responsiveImageSet(image);
   useEffect(() => setBroken(false), [image]);
 
   return (
@@ -45,6 +62,8 @@ export default function ProductMedia({ product, className = "", priority = false
         /* eslint-disable-next-line @next/next/no-img-element */
         <img
           src={image}
+          srcSet={srcSet}
+          sizes="(max-width: 480px) 50vw, (max-width: 768px) 40vw, (max-width: 1280px) 30vw, 25vw"
           alt={`${product.brand} ${product.name}`}
           loading={priority ? "eager" : "lazy"}
           fetchPriority={priority ? "high" : "auto"}

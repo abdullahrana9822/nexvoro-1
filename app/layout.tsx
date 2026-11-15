@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { StoreProvider } from "@/lib/store";
 import "./globals.css";
+import "./responsive.css";
 
 export const metadata: Metadata = {
   title: {
