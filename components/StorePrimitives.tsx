@@ -123,7 +123,10 @@ export function SiteHeader({ theme }: { theme: ThemeId }) {
       window.removeEventListener("keydown", closeOnEscapeOrTab);
       window.removeEventListener("resize", closeOnDesktop);
       document.body.style.overflow = previousOverflow;
-      menuButton?.focus({ preventScroll: true });
+      const focusTarget = menuButton && getComputedStyle(menuButton).display !== "none"
+        ? menuButton
+        : document.querySelector<HTMLElement>(".main-nav a[href]");
+      focusTarget?.focus({ preventScroll: true });
     };
   }, [menuOpen]);
 
