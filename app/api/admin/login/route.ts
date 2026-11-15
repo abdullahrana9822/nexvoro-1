@@ -51,7 +51,7 @@ function failedLogin(address: string, now: number) {
 
 export async function POST(request: NextRequest) {
   if (!adminConfigured()) {
-    return NextResponse.json({ error: "Admin sign-in is not configured. The dedicated Supabase project, admin migration, service-role key, and SESSION_SECRET are required." }, {
+    return NextResponse.json({ error: "Admin sign-in is not configured. The approved Supabase project, admin migration, service-role key, and SESSION_SECRET are required." }, {
       status: 503,
       headers: { "cache-control": "no-store" },
     });
@@ -94,7 +94,7 @@ export async function POST(request: NextRequest) {
       .eq("username_key", usernameKey)
       .maybeSingle();
     if (lookupError) {
-      return NextResponse.json({ error: "Admin account storage is unavailable. Apply the admin-accounts migration to the dedicated production database." }, {
+      return NextResponse.json({ error: "Admin account storage is unavailable. Apply the admin-accounts migration to the approved production Supabase project." }, {
         status: 503,
         headers: { "cache-control": "no-store" },
       });

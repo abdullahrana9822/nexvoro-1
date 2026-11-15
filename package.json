@@ -11,7 +11,8 @@
     "check:catalog": "node scripts/verify-catalog.mjs",
     "test": "npm run check:catalog && node scripts/verify-storefront-edits.mjs && node --test scripts/currency.test.mjs scripts/admin-auth.test.mjs",
     "seed:catalog": "node scripts/seed-catalog.mjs",
-    "admin:create": "node scripts/create-super-admin.mjs"
+    "admin:create": "node scripts/create-super-admin.mjs",
+    "admin:reset": "node scripts/create-super-admin.mjs --reset-existing"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.57.4",
