@@ -22,7 +22,7 @@ const heroCopy: Record<ThemeId, { overline: string; title: string; italic: strin
   "creative-colorful": { overline: "GOOD THINGS, IN FULL COLOR", title: "A bright idea", italic: "for every day.", body: "Big feelings. Useful little things. Discover technology that makes life more playful and more yours.", cta: "Find your color" },
 };
 
-function HomeHero({ theme, heroProduct }: { theme: ThemeId; heroProduct: Product }) {
+function HomeHero({ theme, heroProduct }: { theme: ThemeId; heroProduct?: Product }) {
   const { formatPrice } = useStore();
   const copy = heroCopy[theme];
   const themeName = THEMES.find((item) => item.id === theme)?.name || "Luxury Black";
@@ -35,11 +35,11 @@ function HomeHero({ theme, heroProduct }: { theme: ThemeId; heroProduct: Product
         <div className="hero-actions"><Link href={theme === "gaming-universe" ? "/gaming" : "/shop"} className="button button-primary">{copy.cta}<ArrowRight size={16} /></Link><Link href="/theme-studio" className="hero-secondary-link">A store with eight moods <ArrowUpRight size={15} /></Link></div>
         <div className="hero-index"><span>01</span><i /><span>THE {themeName.toUpperCase()} EXPERIENCE</span></div>
       </div>
-      <div className="hero-art" aria-label={`${heroProduct.name} featured product`}>
+      <div className="hero-art" aria-label={heroProduct ? `${heroProduct.name} featured product` : "Products are being prepared"}>
         <div className="hero-art-halo" />
         <div className="hero-art-grain" />
         <div className="hero-product"><ProductMedia product={heroProduct} priority /></div>
-        <div className="hero-product-caption"><span>THE OBJECT OF THE MOMENT</span><strong>{heroProduct.name}</strong><small>{formatPrice(heroProduct.price)}</small></div>
+        <div className="hero-product-caption"><span>THE OBJECT OF THE MOMENT</span><strong>{heroProduct?.name || "New finds are on their way."}</strong>{heroProduct && <small>{formatPrice(heroProduct.price)}</small>}</div>
         <span className="hero-side-note">DESIGN / PERFORMANCE / EVERYDAY</span>
         <span className="hero-art-number">Nº 01</span>
       </div>
@@ -61,7 +61,7 @@ function CuratedShelf({ section, items, onQuickView }: { section: DiscoverySecti
 
 export default function HomePage({ theme, onQuickView }: { theme: ThemeId; onQuickView: (product: Product) => void }) {
   const { products, categories, recent, reviews, settings, coupons, commerceConfigured, formatPrice } = useStore();
-  const heroProduct = products.find((item) => item.featured && item.stock > 0) || products[0];
+  const heroProduct = products.find((item) => item.featured && item.stock > 0) || products[0] || undefined;
   const findDiscoveryItems = (slug: string, limit = 4) => {
     const section = DISCOVERY.find((item) => item.slug === slug);
     return section ? products.filter((product) => product.tags.includes(section.tag)).slice(0, limit) : [];

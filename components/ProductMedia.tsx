@@ -26,15 +26,22 @@ const categoryIndex: Record<string, number> = {
   "computer-accessories": 11, monitors: 12, "keyboards-mice": 13, "power-banks-chargers": 14,
 };
 
-export default function ProductMedia({ product, className = "", priority = false }: { product: Product; className?: string; priority?: boolean }) {
+export default function ProductMedia({ product, className = "", priority = false }: { product?: Product; className?: string; priority?: boolean }) {
   const [broken, setBroken] = useState(false);
-  const Icon = icons[categoryIndex[product.category] ?? 0] || Smartphone;
-  const image = product.images?.[0];
+  const Icon = product ? icons[categoryIndex[product.category] ?? 0] || Smartphone : Smartphone;
+  const image = product?.images?.[0];
   useEffect(() => setBroken(false), [image]);
 
   return (
     <div className={`product-media ${className}`}>
-      {!broken && image ? (
+      {!product ? (
+        <div className="product-art product-art-placeholder" role="img" aria-label="Product collection coming soon">
+          <span className="art-orbit art-orbit-one" />
+          <span className="art-orbit art-orbit-two" />
+          <div className="art-core"><Icon strokeWidth={1.1} /></div>
+          <div className="art-label"><span>NEXVORO SELECT</span><strong>Coming soon</strong></div>
+        </div>
+      ) : !broken && image ? (
         /* eslint-disable-next-line @next/next/no-img-element */
         <img
           src={image}
